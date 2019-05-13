@@ -29,7 +29,6 @@
 		055D3B01225FAD40003F583D /* FSDFP.h in Headers */ = {isa = PBXBuildFile; fileRef = 055D3AF3225FAD3F003F583D /* FSDFP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		055D3B0B225FB0F2003F583D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3B0A225FB0F2003F583D /* UIKit.framework */; };
 		055D3B0D225FB107003F583D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3B0C225FB107003F583D /* QuartzCore.framework */; };
-		055D3B0F225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D3B0E225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift */; };
 		05B7BBFA227A5F1D009FDD3B /* DFPNOctagonBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B7BBFC227A6BD1009FDD3B /* FSDFPBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BBFB227A6BD1009FDD3B /* FSDFPBannerView.swift */; };
 		05B7BC022280C446009FDD3B /* DFPNInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BC012280C3EE009FDD3B /* DFPNInterstitial.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,7 +58,6 @@
 		055D3B00225FAD40003F583D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055D3B0A225FB0F2003F583D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		055D3B0C225FB107003F583D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		055D3B0E225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DFPNOctagonBannerView+Extensions.swift"; sourceTree = "<group>"; };
 		05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFPNOctagonBannerView.h; sourceTree = "<group>"; };
 		05B7BBFB227A6BD1009FDD3B /* FSDFPBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPBannerView.swift; sourceTree = "<group>"; };
 		05B7BC012280C3EE009FDD3B /* DFPNInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFPNInterstitial.h; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 				055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */,
 				05B7BC012280C3EE009FDD3B /* DFPNInterstitial.h */,
 				05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */,
-				055D3B0E225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift */,
 				05B7BBFB227A6BD1009FDD3B /* FSDFPBannerView.swift */,
 				05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */,
 				05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */,
@@ -375,7 +372,6 @@
 			files = (
 				055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */,
 				05B7BBFC227A6BD1009FDD3B /* FSDFPBannerView.swift in Sources */,
-				055D3B0F225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift in Sources */,
 				055122C6226F966700FDA8E7 /* Constants.swift in Sources */,
 				05B7BC062280C47E009FDD3B /* FSDFPInterstitial.m in Sources */,
 				0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */,

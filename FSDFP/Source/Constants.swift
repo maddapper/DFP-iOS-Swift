@@ -16,5 +16,5 @@ extension String {
 extension TimeInterval {
     static let bannerRefreshIntervalMax = 60.0 * 60.0
     static let bannerRefreshIntervalMin = 15.0
-    static let bannerRefreshIntervalDefault = 20.01
+    static let bannerRefreshIntervalDefault = 25.01
 }

@@ -125,9 +125,9 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         super.load(request)
         fsRequest = request
         guard let _ = fsTimer else {
+            fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
             return
-        }
-        fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
+        }        
     }
 
     // MARK: overriden properties
