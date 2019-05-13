@@ -124,10 +124,10 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
     @objc open override func load(_ request: GADRequest?) {
         super.load(request)
         fsRequest = request
-        guard let _ = fsTimer else {
+        if fsTimer == nil {
+            // initialize timer
             fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
-            return
-        }        
+        }
     }
 
     // MARK: overriden properties
