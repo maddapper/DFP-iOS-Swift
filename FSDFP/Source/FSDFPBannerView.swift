@@ -186,7 +186,10 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
 
     @objc open func resumeRefresh() {
         paused = false
-        fsTimer!.fire()
+        guard let timer = fsTimer else {
+            return
+        }
+        timer.fire()
     }
 
     // MARK: internal reload
