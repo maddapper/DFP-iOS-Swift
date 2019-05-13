@@ -20,15 +20,24 @@ class FSDFPTests: XCTestCase {
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let anyobjectype : AnyObject.Type = NSClassFromString("FSDFP.FSDFPBannerView")!
+        print("\(anyobjectype)")
+        let nsobjectype : NSObject.Type = anyobjectype as! NSObject.Type
+        print("\(nsobjectype)")
+        let banner: AnyObject = nsobjectype.init()
+        print("\(banner)")
+//        let interstitial: FSDFPInterstitial = FSDFPInterstitial(eventHandler: nil, adUnitId: "/15184186/Freestar_Test_320x50")
+//        print(interstitial.adUnitID)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testExample1() {
+        let anyobjectype : AnyObject.Type = NSClassFromString("DFPRequest")!
+        print("\(anyobjectype)")
+        let nsobjectype : NSObject.Type = anyobjectype as! NSObject.Type
+        print("\(nsobjectype)")
+        let banner: AnyObject = nsobjectype.init()
+        print("\(banner)")
+        //        let interstitial: FSDFPInterstitial = FSDFPInterstitial(eventHandler: nil, adUnitId: "/15184186/Freestar_Test_320x50")
+        //        print(interstitial.adUnitID)
     }
-
 }

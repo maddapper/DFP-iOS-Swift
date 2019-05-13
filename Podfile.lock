@@ -1,45 +1,14 @@
 PODS:
   - FSCommon (0.0.1)
-  - Google-Mobile-Ads-SDK (7.43.0):
-    - GoogleAppMeasurement (~> 5.7)
-  - GoogleAppMeasurement (5.8.1):
-    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
-    - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - nanopb (~> 0.3)
-  - GoogleUtilities/AppDelegateSwizzler (5.7.0):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
-  - GoogleUtilities/Environment (5.7.0)
-  - GoogleUtilities/Logger (5.7.0):
-    - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (5.7.0):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (5.7.0):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.7.0)"
-  - GoogleUtilities/Reachability (5.7.0):
-    - GoogleUtilities/Logger
-  - nanopb (0.3.901):
-    - nanopb/decode (= 0.3.901)
-    - nanopb/encode (= 0.3.901)
-  - nanopb/decode (0.3.901)
-  - nanopb/encode (0.3.901)
+  - Google-Mobile-Ads-SDK (7.41.0)
 
 DEPENDENCIES:
   - FSCommon (from `https://github.com/freestarcapital/FSCommon.git`)
-  - Google-Mobile-Ads-SDK (~> 7.43.0)
+  - Google-Mobile-Ads-SDK (~> 7.41.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Google-Mobile-Ads-SDK
-    - GoogleAppMeasurement
-    - GoogleUtilities
-    - nanopb
 
 EXTERNAL SOURCES:
   FSCommon:
@@ -52,11 +21,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   FSCommon: 485c95f1bfef98f2da22c3dfc88217670a668198
-  Google-Mobile-Ads-SDK: e911f5544fc6488f8372a183627a802c8bdb5e36
-  GoogleAppMeasurement: ffe513e90551844a739e7bcbb1d2aca1c28a4338
-  GoogleUtilities: 273e67030e0de313e7304f6dcfa96fc5214f6c23
-  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Google-Mobile-Ads-SDK: 101ce89b94fdf60ec64ba7b6e9b9d812dc765936
 
-PODFILE CHECKSUM: 4dcc96bfe8c7916b348b518598c59c0f87be77f1
+PODFILE CHECKSUM: 5b95e1d89b6e580eabb354f4d75dc96486431b8a
 
 COCOAPODS: 1.6.0.rc.2

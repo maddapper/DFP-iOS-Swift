@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum DFPErrors : Error {
+enum FSDFPErrors : Error {
     case BannerInstantiationException(String)
 }

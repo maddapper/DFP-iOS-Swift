@@ -6,17 +6,35 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		05B7BBF22278F177009FDD3B /* Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 05B7BBF52278F177009FDD3B /* Build configuration list for PBXAggregateTarget "Universal" */;
+			buildPhases = (
+				05B7BBF62278F17D009FDD3B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Universal;
+			productName = Universal;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		04FC0C6293E2DEA2BAA1383A /* Pods_FSDFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF5608DF03EEB0EBC1A0DE5 /* Pods_FSDFP.framework */; };
-		05255344226503A900B1886B /* DeinitializationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05255343226503A900B1886B /* DeinitializationObserver.swift */; };
+		0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */; };
 		055122C6226F966700FDA8E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055122C5226F966700FDA8E7 /* Constants.swift */; };
-		055122C8226FC24200FDA8E7 /* DFPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055122C7226FC24200FDA8E7 /* DFPErrors.swift */; };
+		055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */; };
 		055D3AFA225FAD40003F583D /* FSDFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3AF0225FAD3F003F583D /* FSDFP.framework */; };
 		055D3AFF225FAD40003F583D /* FSDFPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D3AFE225FAD40003F583D /* FSDFPTests.swift */; };
 		055D3B01225FAD40003F583D /* FSDFP.h in Headers */ = {isa = PBXBuildFile; fileRef = 055D3AF3225FAD3F003F583D /* FSDFP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		055D3B0B225FB0F2003F583D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3B0A225FB0F2003F583D /* UIKit.framework */; };
 		055D3B0D225FB107003F583D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3B0C225FB107003F583D /* QuartzCore.framework */; };
-		055D3B0F225FD07C003F583D /* DFPBanner+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D3B0E225FD07C003F583D /* DFPBanner+Extensions.swift */; };
+		055D3B0F225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D3B0E225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift */; };
+		05B7BBFA227A5F1D009FDD3B /* DFPNOctagonBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05B7BBFC227A6BD1009FDD3B /* FSDFPBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BBFB227A6BD1009FDD3B /* FSDFPBannerView.swift */; };
+		05B7BC022280C446009FDD3B /* DFPNInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BC012280C3EE009FDD3B /* DFPNInterstitial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05B7BC052280C47E009FDD3B /* FSDFPInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05B7BC062280C47E009FDD3B /* FSDFPInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,9 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05255343226503A900B1886B /* DeinitializationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeinitializationObserver.swift; sourceTree = "<group>"; };
+		0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSRegistrationProtocols.swift; sourceTree = "<group>"; };
 		055122C5226F966700FDA8E7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		055122C7226FC24200FDA8E7 /* DFPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFPErrors.swift; sourceTree = "<group>"; };
+		055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPErrors.swift; sourceTree = "<group>"; };
 		055D3AF0225FAD3F003F583D /* FSDFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FSDFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		055D3AF3225FAD3F003F583D /* FSDFP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSDFP.h; sourceTree = "<group>"; };
 		055D3AF4225FAD3F003F583D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,10 +59,16 @@
 		055D3B00225FAD40003F583D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055D3B0A225FB0F2003F583D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		055D3B0C225FB107003F583D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		055D3B0E225FD07C003F583D /* DFPBanner+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DFPBanner+Extensions.swift"; sourceTree = "<group>"; };
+		055D3B0E225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DFPNOctagonBannerView+Extensions.swift"; sourceTree = "<group>"; };
+		05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFPNOctagonBannerView.h; sourceTree = "<group>"; };
+		05B7BBFB227A6BD1009FDD3B /* FSDFPBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPBannerView.swift; sourceTree = "<group>"; };
+		05B7BC012280C3EE009FDD3B /* DFPNInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFPNInterstitial.h; sourceTree = "<group>"; };
+		05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSDFPInterstitial.h; sourceTree = "<group>"; };
+		05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSDFPInterstitial.m; sourceTree = "<group>"; };
+		91275D9E33D9FD6BD73A6FDC /* Pods-FSDFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFPTests.debug.xcconfig"; path = "Target Support Files/Pods-FSDFPTests/Pods-FSDFPTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D73394ECC963623E1DC7C0DF /* Pods-FSDFP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFP.release.xcconfig"; path = "Target Support Files/Pods-FSDFP/Pods-FSDFP.release.xcconfig"; sourceTree = "<group>"; };
 		DA949FAEA8506631A83F47FC /* Pods-FSDFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFP.debug.xcconfig"; path = "Target Support Files/Pods-FSDFP/Pods-FSDFP.debug.xcconfig"; sourceTree = "<group>"; };
-		FCF5608DF03EEB0EBC1A0DE5 /* Pods_FSDFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSDFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E47A66737FB816CF12C8B28D /* Pods-FSDFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFPTests.release.xcconfig"; path = "Target Support Files/Pods-FSDFPTests/Pods-FSDFPTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +78,6 @@
 			files = (
 				055D3B0D225FB107003F583D /* QuartzCore.framework in Frameworks */,
 				055D3B0B225FB0F2003F583D /* UIKit.framework in Frameworks */,
-				04FC0C6293E2DEA2BAA1383A /* Pods_FSDFP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,10 +134,15 @@
 		055D3B10225FD09A003F583D /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				055D3B0E225FD07C003F583D /* DFPBanner+Extensions.swift */,
-				05255343226503A900B1886B /* DeinitializationObserver.swift */,
 				055122C5226F966700FDA8E7 /* Constants.swift */,
-				055122C7226FC24200FDA8E7 /* DFPErrors.swift */,
+				055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */,
+				05B7BC012280C3EE009FDD3B /* DFPNInterstitial.h */,
+				05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */,
+				055D3B0E225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift */,
+				05B7BBFB227A6BD1009FDD3B /* FSDFPBannerView.swift */,
+				05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */,
+				05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */,
+				0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -124,6 +152,8 @@
 			children = (
 				DA949FAEA8506631A83F47FC /* Pods-FSDFP.debug.xcconfig */,
 				D73394ECC963623E1DC7C0DF /* Pods-FSDFP.release.xcconfig */,
+				91275D9E33D9FD6BD73A6FDC /* Pods-FSDFPTests.debug.xcconfig */,
+				E47A66737FB816CF12C8B28D /* Pods-FSDFPTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -133,7 +163,6 @@
 			children = (
 				055D3B0C225FB107003F583D /* QuartzCore.framework */,
 				055D3B0A225FB0F2003F583D /* UIKit.framework */,
-				FCF5608DF03EEB0EBC1A0DE5 /* Pods_FSDFP.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,7 +174,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B7BC052280C47E009FDD3B /* FSDFPInterstitial.h in Headers */,
 				055D3B01225FAD40003F583D /* FSDFP.h in Headers */,
+				05B7BC022280C446009FDD3B /* DFPNInterstitial.h in Headers */,
+				05B7BBFA227A5F1D009FDD3B /* DFPNOctagonBannerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 055D3B07225FAD40003F583D /* Build configuration list for PBXNativeTarget "FSDFPTests" */;
 			buildPhases = (
+				369478BD1641FCB5AA5915FA /* [CP] Check Pods Manifest.lock */,
 				055D3AF5225FAD40003F583D /* Sources */,
 				055D3AF6225FAD40003F583D /* Frameworks */,
 				055D3AF7225FAD40003F583D /* Resources */,
+				DE13090211C7A9281264F3B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,6 +240,9 @@
 					055D3AF8225FAD40003F583D = {
 						CreatedOnToolsVersion = 10.2;
 					};
+					05B7BBF22278F177009FDD3B = {
+						CreatedOnToolsVersion = 10.2;
+					};
 				};
 			};
 			buildConfigurationList = 055D3AEA225FAD3F003F583D /* Build configuration list for PBXProject "FSDFP" */;
@@ -214,6 +251,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 055D3AE6225FAD3F003F583D;
 			productRefGroup = 055D3AF1225FAD3F003F583D /* Products */;
@@ -222,6 +260,7 @@
 			targets = (
 				055D3AEF225FAD3F003F583D /* FSDFP */,
 				055D3AF8225FAD40003F583D /* FSDFPTests */,
+				05B7BBF22278F177009FDD3B /* Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -244,6 +283,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		05B7BBF62278F17D009FDD3B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\necho ${BUILD_DIR}\necho ${BUILD_ROOT}\necho ${UNIVERSAL_OUTPUTFOLDER}\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild BITCODE_GENERATION_MODE=bitcode OTHER_CFLAGS=\"-fembed-bitcode\" -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}/Build\"\n";
+		};
+		369478BD1641FCB5AA5915FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FSDFPTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DC8127A973F71BFD75816410 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +344,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DE13090211C7A9281264F3B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FSDFPTests/Pods-FSDFPTests-frameworks.sh",
+				"${PODS_ROOT}/FSCommon/build/FSCommon.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCommon.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FSDFPTests/Pods-FSDFPTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -273,10 +373,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05255344226503A900B1886B /* DeinitializationObserver.swift in Sources */,
-				055122C8226FC24200FDA8E7 /* DFPErrors.swift in Sources */,
-				055D3B0F225FD07C003F583D /* DFPBanner+Extensions.swift in Sources */,
+				055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */,
+				05B7BBFC227A6BD1009FDD3B /* FSDFPBannerView.swift in Sources */,
+				055D3B0F225FD07C003F583D /* DFPNOctagonBannerView+Extensions.swift in Sources */,
 				055122C6226F966700FDA8E7 /* Constants.swift in Sources */,
+				05B7BC062280C47E009FDD3B /* FSDFPInterstitial.m in Sources */,
+				0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,12 +536,69 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FSCommon/build\"",
+					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/frameworks\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
+				);
 				INFOPLIST_FILE = FSDFP/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"FSCommon\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.freestar.mobile.FSDFP;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -447,6 +606,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = "non-global";
 				STRIP_SWIFT_SYMBOLS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,12 +627,69 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FSCommon/build\"",
+					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/frameworks\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
+				);
 				INFOPLIST_FILE = FSDFP/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"FSCommon\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.freestar.mobile.FSDFP;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -480,6 +697,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = "non-global";
 				STRIP_SWIFT_SYMBOLS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s i386 x86_64";
@@ -488,6 +706,7 @@
 		};
 		055D3B08225FAD40003F583D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91275D9E33D9FD6BD73A6FDC /* Pods-FSDFPTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -507,6 +726,7 @@
 		};
 		055D3B09225FAD40003F583D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E47A66737FB816CF12C8B28D /* Pods-FSDFPTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -521,6 +741,24 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		05B7BBF32278F177009FDD3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FLA943DDZ8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05B7BBF42278F177009FDD3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FLA943DDZ8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -550,6 +788,15 @@
 			buildConfigurations = (
 				055D3B08225FAD40003F583D /* Debug */,
 				055D3B09225FAD40003F583D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B7BBF52278F177009FDD3B /* Build configuration list for PBXAggregateTarget "Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B7BBF32278F177009FDD3B /* Debug */,
+				05B7BBF42278F177009FDD3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
