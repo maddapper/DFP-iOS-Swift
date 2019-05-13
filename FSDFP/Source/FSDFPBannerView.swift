@@ -122,6 +122,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
 
     // MARK: overriden methods
     @objc open override func load(_ request: GADRequest?) {
+        Utils.shared.validateAndAttachKeywords(request: request, identifier: fsIdentifier)
         super.load(request)
         fsRequest = request
         if fsTimer == nil {
@@ -217,6 +218,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         // only allow reload if loadRequest was called
         if let _ = adUnitID, let request = fsRequest  {
             DispatchQueue.main.async(execute: {
+                Utils.shared.validateAndAttachKeywords(request: request, identifier: fsIdentifier)
                 super.load(request)
             })
         }

@@ -22,6 +22,12 @@
 
 /* Begin PBXBuildFile section */
 		0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */; };
+		053F95382289F8DD0055E7BB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F95372289F8DD0055E7BB /* Utils.swift */; };
+		053F953B2289FA980055E7BB /* DFPNRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 053F95392289FA980055E7BB /* DFPNRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		053F953E2289FD7E0055E7BB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F953D2289FD7E0055E7BB /* String+Extensions.swift */; };
+		053F9540228A053F0055E7BB /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F953F228A053F0055E7BB /* Bundle+Extensions.swift */; };
+		053F9542228A124E0055E7BB /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F9541228A124E0055E7BB /* Collection+Extensions.swift */; };
+		053F9544228A231F0055E7BB /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F9543228A231F0055E7BB /* NSObject+Extensions.swift */; };
 		055122C6226F966700FDA8E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055122C5226F966700FDA8E7 /* Constants.swift */; };
 		055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */; };
 		055D3AFA225FAD40003F583D /* FSDFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3AF0225FAD3F003F583D /* FSDFP.framework */; };
@@ -48,6 +54,12 @@
 
 /* Begin PBXFileReference section */
 		0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSRegistrationProtocols.swift; sourceTree = "<group>"; };
+		053F95372289F8DD0055E7BB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		053F95392289FA980055E7BB /* DFPNRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFPNRequest.h; sourceTree = "<group>"; };
+		053F953D2289FD7E0055E7BB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		053F953F228A053F0055E7BB /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		053F9541228A124E0055E7BB /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		053F9543228A231F0055E7BB /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		055122C5226F966700FDA8E7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPErrors.swift; sourceTree = "<group>"; };
 		055D3AF0225FAD3F003F583D /* FSDFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FSDFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +152,12 @@
 				05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */,
 				05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */,
 				0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */,
+				053F95372289F8DD0055E7BB /* Utils.swift */,
+				053F95392289FA980055E7BB /* DFPNRequest.h */,
+				053F953D2289FD7E0055E7BB /* String+Extensions.swift */,
+				053F953F228A053F0055E7BB /* Bundle+Extensions.swift */,
+				053F9541228A124E0055E7BB /* Collection+Extensions.swift */,
+				053F9543228A231F0055E7BB /* NSObject+Extensions.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -174,6 +192,7 @@
 				05B7BC052280C47E009FDD3B /* FSDFPInterstitial.h in Headers */,
 				055D3B01225FAD40003F583D /* FSDFP.h in Headers */,
 				05B7BC022280C446009FDD3B /* DFPNInterstitial.h in Headers */,
+				053F953B2289FA980055E7BB /* DFPNRequest.h in Headers */,
 				05B7BBFA227A5F1D009FDD3B /* DFPNOctagonBannerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,9 +391,14 @@
 			files = (
 				055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */,
 				05B7BBFC227A6BD1009FDD3B /* FSDFPBannerView.swift in Sources */,
+				053F953E2289FD7E0055E7BB /* String+Extensions.swift in Sources */,
 				055122C6226F966700FDA8E7 /* Constants.swift in Sources */,
 				05B7BC062280C47E009FDD3B /* FSDFPInterstitial.m in Sources */,
+				053F9544228A231F0055E7BB /* NSObject+Extensions.swift in Sources */,
 				0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */,
+				053F95382289F8DD0055E7BB /* Utils.swift in Sources */,
+				053F9540228A053F0055E7BB /* Bundle+Extensions.swift in Sources */,
+				053F9542228A124E0055E7BB /* Collection+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +652,7 @@
 					"\"${PODS_ROOT}/FSCommon/build\"",
 					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/frameworks\"",
 				);
+				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
@@ -694,6 +719,7 @@
 				STRIP_STYLE = "non-global";
 				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s i386 x86_64";
