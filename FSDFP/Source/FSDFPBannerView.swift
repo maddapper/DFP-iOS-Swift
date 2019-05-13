@@ -62,10 +62,6 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         }
     }
     
-    @objc public func fakeMethod() {
-        
-    }
-
     // MARK: static dispatch queue
     static var fsQueue: DispatchQueue = {
         var queue = DispatchQueue(label: "io.freestar.mobile.queue.dfpbanner")
@@ -126,8 +122,12 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
 
     // MARK: overriden methods
     @objc open override func load(_ request: GADRequest?) {
-            super.load(request)
-            fsRequest = request
+        super.load(request)
+        fsRequest = request
+        guard let _ = fsTimer else {
+            return
+        }
+        fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
     }
 
     // MARK: overriden properties
