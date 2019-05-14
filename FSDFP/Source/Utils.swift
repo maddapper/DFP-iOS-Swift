@@ -30,68 +30,85 @@ public class Utils: NSObject {
         
     }
     
-//    @objc public func removeHBKeywords(request: GADRequest) {
-//        let request: String = String(describing: type(of: adObject))
-//        if (request == .DFP_Object_Name || request == .DFP_O_Object_Name ||
-//            request == .DFP_N_Object_Name || request == .GAD_N_Object_Name ||
-//            request == .GAD_Object_Name) {
-//            let hasDFPMember = adObject.responds(to: NSSelectorFromString("setCustomTargeting:"))
-//            if (hasDFPMember) {
-//                //check if the publisher has added any custom targeting. If so then merge the bid keywords to the same.
-//                if (adObject.value(forKey: "customTargeting") != nil) {
-//                    var existingDict: [String: Any] = adObject.value(forKey: "customTargeting") as! [String: Any]
-//                    for (key, _)in existingDict {
-//                        if (key.starts(with: "hb_")) {
-//                            existingDict[key] = nil
-//                        }
-//                    }
-//                    adObject.setValue( existingDict, forKey: "customTargeting")
-//                }
-//            }
-//        }
-//    }
+    func bidManager() throws -> NSObject? {
+        guard let bidManagerClass: NSObject.Type = "PBBidManager".convertToClass(Bundle.prebid) else {
+            throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
+        }
+        guard let bidManager: NSObject = bidManagerClass.perform(NSSelectorFromString("sharedInstance"))?.takeUnretainedValue() as? NSObject else {
+            throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
+        }
+        return bidManager
+    }
     
-    @objc func validateAndAttachKeywords(request: GADRequest?, identifier: String?) {
+    func adUnitWith(identifier: String?) -> NSObject? {        
+        let adUnitByIdentifierSelector = NSSelectorFromString("adUnitByIdentifier:")
+        if (try! bidManager()!.responds(to: adUnitByIdentifierSelector)) {
+            guard let adUnit: NSObject = (try! bidManager()!.perform(adUnitByIdentifierSelector, with: identifier)?.takeUnretainedValue()) as? NSObject else {
+                return nil
+            }
+            return adUnit
+        }
+        return nil
+    }
+    
+    func keywordsFor(identifier: String) -> [String: Any]? {
+        let adUnit = adUnitWith(identifier: identifier)
+        let keywordsForWinningBidForAdUnitSelector = NSSelectorFromString("keywordsForWinningBidForAdUnit:")
+        if (try! bidManager()!.responds(to: keywordsForWinningBidForAdUnitSelector)) {
+            guard let keywords = try! bidManager()!.perform(keywordsForWinningBidForAdUnitSelector, with: adUnit)?.takeUnretainedValue() as? [String:Any] else {
+                return nil
+            }
+            return keywords
+        }
+        return nil
+    }
+    
+    func mergeFSAppKVPair(_ keywords: [String: Any]) -> [String: Any] {
+        var fsAppKV: [String: Any] = ["fs_app":"true"]
+        fsAppKV.merge(dict: keywords)
+        return keywords
+    }
+    
+    @objc public func removeHBKeywords(request: GADRequest?) {
+        precondition(request != nil)
         guard let gadRequest = request else {
             return
         }
         
+        let dfpRequest: DFPNRequest = gadRequest as! DFPNRequest
+        
+        //check if the publisher has added any custom targeting. If so then merge the bid keywords to the same.
+        var existingDict: [String: Any] = dfpRequest.customTargeting as! [String : Any]
+        for (key, _)in existingDict {
+            if (key.starts(with: "hb_")) {
+                existingDict[key] = nil
+            }
+        }
+        dfpRequest.customTargeting = existingDict
+    }
+
+    @objc func validateAndAttachKeywords(request: GADRequest?, identifier: String?) {
+        precondition(request != nil)
+        precondition(identifier != nil)
+        guard let gadRequest = request else {
+            return
+        }
         guard let identifier = identifier else {
             return
         }
         
         let dfpRequest: DFPNRequest = gadRequest as! DFPNRequest
-        guard let bidManagerClass: NSObject.Type = "PBBidManager".convertToClass(Bundle.prebid) else {
+        guard let keywords = keywordsFor(identifier: identifier) else {
             return
         }
         
-        guard let bidManager: NSObject = bidManagerClass.perform(NSSelectorFromString("sharedInstance"))?.takeUnretainedValue() as? NSObject else {
-            return
+        // check if the publisher has added any custom targeting. If so then merge the bid keywords to the same.
+        if (dfpRequest.customTargeting != nil) {
+            var existingDict: [String: Any] = dfpRequest.customTargeting as! [String : Any]
+            existingDict.merge(dict: keywords)
+            dfpRequest.customTargeting = mergeFSAppKVPair(existingDict)
+        } else {
+            dfpRequest.customTargeting = mergeFSAppKVPair(keywords)
         }
-        bidManager.printMethodNames()
-        
-        let adUnitByIdentifierSelector = NSSelectorFromString("adUnitByIdentifier:")
-        if (bidManager.responds(to: adUnitByIdentifierSelector)) {
-            guard let adUnit: NSObject = (bidManager.perform(adUnitByIdentifierSelector, with: identifier)?.takeUnretainedValue()) as? NSObject else {
-                return
-            }
-            
-            let keywordsForWinningBidForAdUnitSelector = NSSelectorFromString("keywordsForWinningBidForAdUnit:")
-            if (bidManager.responds(to: keywordsForWinningBidForAdUnitSelector)) {
-                guard let keywords = bidManager.perform(keywordsForWinningBidForAdUnitSelector, with: adUnit)?.takeUnretainedValue() as? [String:Any] else {
-                    return
-                }
-                
-                //        check if the publisher has added any custom targeting. If so then merge the bid keywords to the same.
-                if (dfpRequest.customTargeting != nil) {
-                    var existingDict: [String: Any] = dfpRequest.customTargeting as! [String : Any]
-                    existingDict.merge(dict: keywords)
-                    dfpRequest.customTargeting = existingDict
-                } else {
-                    dfpRequest.customTargeting = keywords
-                }
-            }
-        }
-
     }
 }

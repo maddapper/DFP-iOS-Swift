@@ -10,4 +10,5 @@ import Foundation
 
 enum FSDFPErrors : Error {
     case BannerInstantiationException(String)
+    case PrebidFrameworkMissing(String)
 }

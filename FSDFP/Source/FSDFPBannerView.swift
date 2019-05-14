@@ -16,9 +16,10 @@ public typealias FSAdEventHandler = @convention(block) (_ methodName: String, _ 
 open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
 
     // MARK: public properties
-    @objc open private(set) var fsIdentifier:String?
-    @objc open var paused:Bool
-    @objc open weak var registrationDelegate:FSRegistrationDelegate?
+    @objc public private(set) var fsIdentifier:String?
+    @objc public var paused: Bool
+    @objc public weak var registrationDelegate:FSRegistrationDelegate?
+    @objc public var isRegistered: Bool
 
     // MARK: private properties
     private var fsTimer:FSWeakGCDTimer?
@@ -27,13 +28,13 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
     private var _fsRefreshRate: TimeInterval
 
     // MARK: computed properties
-    @objc open var fsAdSize: CGSize {
+    @objc public var fsAdSize: CGSize {
         get {
             return adSize.size
         }
     }
     
-    @objc open private(set) var adUnitId:String? {
+    @objc public private(set) var adUnitId:String? {
         get {
             return super.adUnitID
         }
@@ -43,7 +44,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         }
     }
 
-    @objc open var fsRefreshRate:TimeInterval {
+    @objc public var fsRefreshRate:TimeInterval {
         get {
             return _fsRefreshRate
         }
@@ -78,6 +79,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
 
     init(_ size: GADAdSize) {
         paused = false
+        isRegistered = false
         _fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         if (FSDFPBannerView.validate(size)) {
             super.init(adSize: size)
@@ -90,6 +92,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
 
     public required init?(coder aDecoder: NSCoder) {
         paused = aDecoder.decodeObject(forKey: "paused") as! Bool
+        isRegistered = aDecoder.decodeObject(forKey: "isRegistered") as! Bool
         _fsRefreshRate = aDecoder.decodeObject(forKey: "fsRefreshRate") as! TimeInterval
         fsEventHandler = aDecoder.decodeObject(forKey: "fsEventHandler") as? FSAdEventHandler
         registrationDelegate = aDecoder.decodeObject(forKey: "registrationDelegate") as? FSRegistrationDelegate
@@ -110,18 +113,21 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
 
     public override init(frame: CGRect) {
         paused = false
+        isRegistered = false
         _fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         super.init(frame: frame)
     }
 
     public override init(adSize: GADAdSize, origin: CGPoint) {
         paused = false
+        isRegistered = false
         _fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         super.init(adSize: adSize, origin: origin)
     }
 
     // MARK: overriden methods
     @objc open override func load(_ request: GADRequest?) {
+        Utils.shared.removeHBKeywords(request: request)
         Utils.shared.validateAndAttachKeywords(request: request, identifier: fsIdentifier)
         super.load(request)
         fsRequest = request
@@ -147,7 +153,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
     }
     
     // MARK: refresh setter
-    @objc open func setFsRefreshRate(_ refreshRate: TimeInterval, sender: Any?) {
+    @objc public func setFsRefreshRate(_ refreshRate: TimeInterval, sender: Any?) {
         // only set refresh rate if it hasn't been set
         guard _fsRefreshRate == TimeInterval.bannerRefreshIntervalDefault
             && FSDFPBannerView.validate(refreshRate) else {
@@ -181,11 +187,11 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
     }
 
     // MARK: pause / refresh
-    @objc open func pauseRefresh() {
+    @objc public func pauseRefresh() {
         paused = true
     }
 
-    @objc open func resumeRefresh() {
+    @objc public func resumeRefresh() {
         paused = false
         guard let timer = fsTimer else {
             return
@@ -218,7 +224,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         // only allow reload if loadRequest was called
         if let _ = adUnitID, let request = fsRequest  {
             DispatchQueue.main.async(execute: {
-                Utils.shared.validateAndAttachKeywords(request: request, identifier: fsIdentifier)
+                Utils.shared.validateAndAttachKeywords(request: request, identifier: self.fsIdentifier)
                 super.load(request)
             })
         }
