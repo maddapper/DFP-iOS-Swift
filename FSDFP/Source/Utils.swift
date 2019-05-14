@@ -52,7 +52,9 @@ public class Utils: NSObject {
     }
     
     func keywordsFor(identifier: String) -> [String: Any]? {
-        let adUnit = adUnitWith(identifier: identifier)
+        guard let adUnit = adUnitWith(identifier: identifier) else {
+            return nil
+        }
         let keywordsForWinningBidForAdUnitSelector = NSSelectorFromString("keywordsForWinningBidForAdUnit:")
         if (try! bidManager()!.responds(to: keywordsForWinningBidForAdUnitSelector)) {
             guard let keywords = try! bidManager()!.perform(keywordsForWinningBidForAdUnitSelector, with: adUnit)?.takeUnretainedValue() as? [String:Any] else {
@@ -63,10 +65,10 @@ public class Utils: NSObject {
         return nil
     }
     
-    func mergeFSAppKVPair(_ keywords: [String: Any]) -> [String: Any] {
-        var fsAppKV: [String: Any] = ["fs_app":"true"]
+    func mergeFSAppKVPair(_ keywords: [AnyHashable: Any]) -> [AnyHashable: Any] {
+        var fsAppKV: [AnyHashable: Any] = ["fs_app":"true"]
         fsAppKV.merge(dict: keywords)
-        return keywords
+        return fsAppKV
     }
     
     @objc public func removeHBKeywords(request: GADRequest?) {
@@ -75,16 +77,17 @@ public class Utils: NSObject {
             return
         }
         
-        let dfpRequest: DFPNRequest = gadRequest as! DFPNRequest
+        guard var existingDict: [String: Any] = gadRequest.customTargeting as? [String : Any] else {
+            return
+        }
         
         //check if the publisher has added any custom targeting. If so then merge the bid keywords to the same.
-        var existingDict: [String: Any] = dfpRequest.customTargeting as! [String : Any]
         for (key, _)in existingDict {
             if (key.starts(with: "hb_")) {
                 existingDict[key] = nil
             }
         }
-        dfpRequest.customTargeting = existingDict
+        gadRequest.customTargeting = existingDict
     }
 
     @objc func validateAndAttachKeywords(request: GADRequest?, identifier: String?) {
@@ -97,18 +100,31 @@ public class Utils: NSObject {
             return
         }
         
-        let dfpRequest: DFPNRequest = gadRequest as! DFPNRequest
         guard let keywords = keywordsFor(identifier: identifier) else {
+            // no bid keywords so bail early
             return
         }
         
-        // check if the publisher has added any custom targeting. If so then merge the bid keywords to the same.
-        if (dfpRequest.customTargeting != nil) {
-            var existingDict: [String: Any] = dfpRequest.customTargeting as! [String : Any]
-            existingDict.merge(dict: keywords)
-            dfpRequest.customTargeting = mergeFSAppKVPair(existingDict)
+        // ensure dfpRequest is not nil
+        gadRequest.customTargeting = gadRequest.customTargeting ?? [AnyHashable: Any]()
+        guard let existingDict = gadRequest.customTargeting else {
+            return
+        }
+        
+        var mergedDict = mergeFSAppKVPair(existingDict)
+        
+        guard let bidValue: String = keywords["hb_pb"] as? String else {
+            gadRequest.customTargeting = mergedDict
+            return
+        }
+        
+        if bidValue == "0.00" {
+            // do not append 0 cent bid keywords
+            gadRequest.customTargeting = mergedDict
         } else {
-            dfpRequest.customTargeting = mergeFSAppKVPair(keywords)
+            // merge the bid keywords
+            mergedDict.merge(dict: keywords)
+            gadRequest.customTargeting = mergedDict
         }
     }
 }

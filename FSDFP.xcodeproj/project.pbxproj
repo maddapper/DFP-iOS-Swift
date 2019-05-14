@@ -23,7 +23,7 @@
 /* Begin PBXBuildFile section */
 		0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */; };
 		053F95382289F8DD0055E7BB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F95372289F8DD0055E7BB /* Utils.swift */; };
-		053F953B2289FA980055E7BB /* DFPNRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 053F95392289FA980055E7BB /* DFPNRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		053F953B2289FA980055E7BB /* DFPNRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 053F95392289FA980055E7BB /* DFPNRequest.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		053F953E2289FD7E0055E7BB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F953D2289FD7E0055E7BB /* String+Extensions.swift */; };
 		053F9540228A053F0055E7BB /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F953F228A053F0055E7BB /* Bundle+Extensions.swift */; };
 		053F9542228A124E0055E7BB /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F9541228A124E0055E7BB /* Collection+Extensions.swift */; };
@@ -561,6 +561,7 @@
 					"\"${PODS_ROOT}/FSCommon/build\"",
 					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/frameworks\"",
 				);
+				GCC_OPTIMIZATION_LEVEL = s;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
@@ -627,7 +628,7 @@
 				STRIP_STYLE = "non-global";
 				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s i386 x86_64";
@@ -652,7 +653,7 @@
 					"\"${PODS_ROOT}/FSCommon/build\"",
 					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/frameworks\"",
 				);
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
@@ -719,7 +720,7 @@
 				STRIP_STYLE = "non-global";
 				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s i386 x86_64";

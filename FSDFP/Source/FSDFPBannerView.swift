@@ -224,6 +224,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         // only allow reload if loadRequest was called
         if let _ = adUnitID, let request = fsRequest  {
             DispatchQueue.main.async(execute: {
+                Utils.shared.removeHBKeywords(request: request)
                 Utils.shared.validateAndAttachKeywords(request: request, identifier: self.fsIdentifier)
                 super.load(request)
             })
@@ -232,6 +233,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
 
     // MARK: GADBannerViewDelegate
     public func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        self.resize(bannerView.adSize)
         guard let _ = fsEventHandler else { return }
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
     }
