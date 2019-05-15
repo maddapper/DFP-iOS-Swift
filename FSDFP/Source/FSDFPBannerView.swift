@@ -124,13 +124,39 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         _fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         super.init(adSize: adSize, origin: origin)
     }
+    
+    private func swapRequestIfNeeded(_ request: GADRequest?) -> GADRequest? {
+        guard let request = request else {
+            return nil
+        }
+
+        let className = String(describing: type(of: request))
+        guard className == "DFPORequest" else {
+            return request
+        }
+        let newRequest = DFPNRequest()
+        newRequest.categoryExclusions = request.categoryExclusions
+        newRequest.customTargeting = request.customTargeting
+        newRequest.publisherProvidedID = request.publisherProvidedID
+        newRequest.keywords = request.keywords
+        newRequest.testDevices = request.testDevices
+        newRequest.contentURL = request.contentURL
+        newRequest.requestAgent = request.requestAgent
+        
+        return newRequest
+    }
 
     // MARK: overriden methods
     @objc open override func load(_ request: GADRequest?) {
-        Utils.shared.removeHBKeywords(request: request)
-        Utils.shared.validateAndAttachKeywords(request: request, identifier: fsIdentifier)
-        super.load(request)
-        fsRequest = request
+        guard let request = request else {
+            return
+        }
+        
+        let swappedRequest = swapRequestIfNeeded(request)
+        Utils.shared.removeHBKeywords(request: swappedRequest)
+        Utils.shared.validateAndAttachKeywords(request: swappedRequest, identifier: fsIdentifier)
+        super.load(swappedRequest)
+        fsRequest = swappedRequest
         if fsTimer == nil {
             // initialize timer
             fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault

@@ -85,6 +85,8 @@ public class Utils: NSObject {
         for (key, _)in existingDict {
             if (key.starts(with: "hb_")) {
                 existingDict[key] = nil
+            } else if (key == "fs_app") {
+                existingDict[key] = nil
             }
         }
         gadRequest.customTargeting = existingDict
@@ -100,28 +102,23 @@ public class Utils: NSObject {
             return
         }
         
-        guard let keywords = keywordsFor(identifier: identifier) else {
-            // no bid keywords so bail early
-            return
-        }
-        
         // ensure dfpRequest is not nil
         gadRequest.customTargeting = gadRequest.customTargeting ?? [AnyHashable: Any]()
         guard let existingDict = gadRequest.customTargeting else {
             return
         }
-        
         var mergedDict = mergeFSAppKVPair(existingDict)
-        
+        gadRequest.customTargeting = mergedDict
+        guard let keywords = keywordsFor(identifier: identifier) else {
+            // no bid keywords so bail early
+            return
+        }
         guard let bidValue: String = keywords["hb_pb"] as? String else {
-            gadRequest.customTargeting = mergedDict
+            // no hb_pb bid entry so bail early
             return
         }
         
-        if bidValue == "0.00" {
-            // do not append 0 cent bid keywords
-            gadRequest.customTargeting = mergedDict
-        } else {
+        if bidValue != "0.00" {
             // merge the bid keywords
             mergedDict.merge(dict: keywords)
             gadRequest.customTargeting = mergedDict
