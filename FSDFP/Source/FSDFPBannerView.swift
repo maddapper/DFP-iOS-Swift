@@ -81,7 +81,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         paused = false
         isRegistered = false
         _fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
-        if (FSDFPBannerView.validate(size)) {
+        if (size.validate()) {
             super.init(adSize: size)
             validAdSizes = [NSValueFromGADAdSize(size)]
         } else {
@@ -167,7 +167,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
     open override var adSize: GADAdSize {
         // ensure valid ad size
         set {
-            if FSDFPBannerView.validate(adSize) {
+            if adSize.validate() {
                 super.adSize = adSize
             } else {
                 assertionFailure("Cannot instantiate ad object due to invalid ad size: \(NSStringFromGADAdSize(adSize))")
@@ -191,25 +191,6 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
     static func validate(_ refreshRate: TimeInterval) -> Bool {
         return refreshRate < TimeInterval.bannerRefreshIntervalMax && refreshRate
             > TimeInterval.bannerRefreshIntervalMin
-    }
-
-    // MARK: size validation
-    static func validate(_ adSize: GADAdSize) -> Bool {        
-        var validSize = false
-        validSize = IsGADAdSizeValid(adSize)
-        if validSize {
-            // weed out invalid default ad sizes
-            let invalidAdSizeMin: GADAdSize = GADAdSizeFromCGSize(CGSize.zero)
-            let invalidAdSizeMax: GADAdSize = GADAdSizeFromCGSize(CGSize(width: 1000, height: 1000))
-            let invalidAdSizeVMax: GADAdSize = GADAdSizeFromCGSize(CGSize(width: 0, height: 1000))
-            let invalidAdSizeHMax: GADAdSize = GADAdSizeFromCGSize(CGSize(width: 1000, height: 0))
-            let invalidAdSizeVMin: GADAdSize = GADAdSizeFromCGSize(CGSize(width: 0, height: 1))
-            let invalidAdSizeHMin: GADAdSize = GADAdSizeFromCGSize(CGSize(width: 1, height: 0))
-            if GADAdSizeEqualToSize(adSize, invalidAdSizeMin) || GADAdSizeEqualToSize(adSize, invalidAdSizeMax) || GADAdSizeEqualToSize(adSize, invalidAdSizeVMax) || GADAdSizeEqualToSize(adSize, invalidAdSizeHMax) || GADAdSizeEqualToSize(adSize, invalidAdSizeVMin) || GADAdSizeEqualToSize(adSize, invalidAdSizeHMin) {
-                validSize = false
-            }
-        }
-        return validSize
     }
 
     // MARK: pause / refresh
