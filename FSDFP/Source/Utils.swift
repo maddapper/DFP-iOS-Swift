@@ -34,6 +34,7 @@ public class Utils: NSObject {
         guard let bidManagerClass: NSObject.Type = "PBBidManager".convertToClass(Bundle.prebid) else {
             throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
         }
+        
         guard let bidManager: NSObject = bidManagerClass.perform(NSSelectorFromString("sharedInstance"))?.takeUnretainedValue() as? NSObject else {
             throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
         }
@@ -57,7 +58,7 @@ public class Utils: NSObject {
         }
         let keywordsForWinningBidForAdUnitSelector = NSSelectorFromString("keywordsForWinningBidForAdUnit:")
         if (try! bidManager()!.responds(to: keywordsForWinningBidForAdUnitSelector)) {
-            guard let keywords = try! bidManager()!.perform(keywordsForWinningBidForAdUnitSelector, with: adUnit)?.takeUnretainedValue() as? [String:Any] else {
+            guard let keywords: [String:Any] = try! bidManager()!.perform(keywordsForWinningBidForAdUnitSelector, with: adUnit)?.takeUnretainedValue() as? [String:Any] else {
                 return nil
             }
             return keywords

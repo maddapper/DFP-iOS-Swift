@@ -37,10 +37,14 @@
 		055D3B0D225FB107003F583D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3B0C225FB107003F583D /* QuartzCore.framework */; };
 		05B7BABF228DE76F005E956D /* GADAdSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BABE228DE76F005E956D /* GADAdSize+Extensions.swift */; };
 		05B7BBFA227A5F1D009FDD3B /* DFPNOctagonBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05B7BBFC227A6BD1009FDD3B /* FSDFPBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BBFB227A6BD1009FDD3B /* FSDFPBannerView.swift */; };
+		05B7BBFC227A6BD1009FDD3B /* FSDFPBannerViewVariantN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BBFB227A6BD1009FDD3B /* FSDFPBannerViewVariantN.swift */; };
 		05B7BC022280C446009FDD3B /* DFPNInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BC012280C3EE009FDD3B /* DFPNInterstitial.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B7BC052280C47E009FDD3B /* FSDFPInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B7BC062280C47E009FDD3B /* FSDFPInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */; };
+		05BD72F0228F831A008BDBF4 /* FSDFPBannerViewVariantO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD72EF228F831A008BDBF4 /* FSDFPBannerViewVariantO.swift */; };
+		05BD72F2228F8405008BDBF4 /* DFPOBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BD72F1228F83FE008BDBF4 /* DFPOBannerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BD72F4228F84C5008BDBF4 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD72F3228F84C5008BDBF4 /* TimeInterval+Extensions.swift */; };
+		05BD72F62290D2DC008BDBF4 /* GADRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD72F52290D2DC008BDBF4 /* GADRequest+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,10 +77,14 @@
 		055D3B0C225FB107003F583D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		05B7BABE228DE76F005E956D /* GADAdSize+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GADAdSize+Extensions.swift"; sourceTree = "<group>"; };
 		05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFPNOctagonBannerView.h; sourceTree = "<group>"; };
-		05B7BBFB227A6BD1009FDD3B /* FSDFPBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPBannerView.swift; sourceTree = "<group>"; };
+		05B7BBFB227A6BD1009FDD3B /* FSDFPBannerViewVariantN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPBannerViewVariantN.swift; sourceTree = "<group>"; };
 		05B7BC012280C3EE009FDD3B /* DFPNInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFPNInterstitial.h; sourceTree = "<group>"; };
 		05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSDFPInterstitial.h; sourceTree = "<group>"; };
 		05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSDFPInterstitial.m; sourceTree = "<group>"; };
+		05BD72EF228F831A008BDBF4 /* FSDFPBannerViewVariantO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPBannerViewVariantO.swift; sourceTree = "<group>"; };
+		05BD72F1228F83FE008BDBF4 /* DFPOBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFPOBannerView.h; sourceTree = "<group>"; };
+		05BD72F3228F84C5008BDBF4 /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
+		05BD72F52290D2DC008BDBF4 /* GADRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GADRequest+Extensions.swift"; sourceTree = "<group>"; };
 		91275D9E33D9FD6BD73A6FDC /* Pods-FSDFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFPTests.debug.xcconfig"; path = "Target Support Files/Pods-FSDFPTests/Pods-FSDFPTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D73394ECC963623E1DC7C0DF /* Pods-FSDFP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFP.release.xcconfig"; path = "Target Support Files/Pods-FSDFP/Pods-FSDFP.release.xcconfig"; sourceTree = "<group>"; };
 		DA949FAEA8506631A83F47FC /* Pods-FSDFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFP.debug.xcconfig"; path = "Target Support Files/Pods-FSDFP/Pods-FSDFP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,7 +158,7 @@
 				055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */,
 				05B7BC012280C3EE009FDD3B /* DFPNInterstitial.h */,
 				05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */,
-				05B7BBFB227A6BD1009FDD3B /* FSDFPBannerView.swift */,
+				05B7BBFB227A6BD1009FDD3B /* FSDFPBannerViewVariantN.swift */,
 				05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */,
 				05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */,
 				0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */,
@@ -161,6 +169,10 @@
 				053F9541228A124E0055E7BB /* Collection+Extensions.swift */,
 				053F9543228A231F0055E7BB /* NSObject+Extensions.swift */,
 				05B7BABE228DE76F005E956D /* GADAdSize+Extensions.swift */,
+				05BD72EF228F831A008BDBF4 /* FSDFPBannerViewVariantO.swift */,
+				05BD72F1228F83FE008BDBF4 /* DFPOBannerView.h */,
+				05BD72F3228F84C5008BDBF4 /* TimeInterval+Extensions.swift */,
+				05BD72F52290D2DC008BDBF4 /* GADRequest+Extensions.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -192,6 +204,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BD72F2228F8405008BDBF4 /* DFPOBannerView.h in Headers */,
 				05B7BC052280C47E009FDD3B /* FSDFPInterstitial.h in Headers */,
 				055D3B01225FAD40003F583D /* FSDFP.h in Headers */,
 				05B7BC022280C446009FDD3B /* DFPNInterstitial.h in Headers */,
@@ -393,13 +406,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */,
-				05B7BBFC227A6BD1009FDD3B /* FSDFPBannerView.swift in Sources */,
+				05B7BBFC227A6BD1009FDD3B /* FSDFPBannerViewVariantN.swift in Sources */,
 				053F953E2289FD7E0055E7BB /* String+Extensions.swift in Sources */,
 				055122C6226F966700FDA8E7 /* Constants.swift in Sources */,
+				05BD72F0228F831A008BDBF4 /* FSDFPBannerViewVariantO.swift in Sources */,
 				05B7BABF228DE76F005E956D /* GADAdSize+Extensions.swift in Sources */,
 				05B7BC062280C47E009FDD3B /* FSDFPInterstitial.m in Sources */,
 				053F9544228A231F0055E7BB /* NSObject+Extensions.swift in Sources */,
+				05BD72F62290D2DC008BDBF4 /* GADRequest+Extensions.swift in Sources */,
 				0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */,
+				05BD72F4228F84C5008BDBF4 /* TimeInterval+Extensions.swift in Sources */,
 				053F95382289F8DD0055E7BB /* Utils.swift in Sources */,
 				053F9540228A053F0055E7BB /* Bundle+Extensions.swift in Sources */,
 				053F9542228A124E0055E7BB /* Collection+Extensions.swift in Sources */,

@@ -8,6 +8,8 @@
 
 import Foundation
 
+public typealias FSAdEventHandler = @convention(block) (_ methodName: String, _ params: [ String : Any]) -> Void
+
 extension String {
     static let eventBannerViewKey = "bannerView"
     static let eventErrorKey = "error"

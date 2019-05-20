@@ -20,7 +20,7 @@ class FSDFPTests: XCTestCase {
     }
 
     func testExample() {
-        let anyobjectype : AnyObject.Type = NSClassFromString("FSDFP.FSDFPBannerView")!
+        let anyobjectype : AnyObject.Type = NSClassFromString("FSDFP.FSDFPBannerViewVariantO")!
         print("\(anyobjectype)")
         let nsobjectype : NSObject.Type = anyobjectype as! NSObject.Type
         print("\(nsobjectype)")

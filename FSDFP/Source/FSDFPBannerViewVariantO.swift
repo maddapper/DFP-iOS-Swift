@@ -1,5 +1,5 @@
 //
-//  FSDFPBannerView.swift
+//  FSDFPBannerViewVariantO.swift
 //  FSDFP
 //
 //  Created by Dean Chang on 5/1/19.
@@ -10,23 +10,23 @@ import Foundation
 import GoogleMobileAds
 import FSCommon
 
-public typealias FSAdEventHandler = @convention(block) (_ methodName: String, _ params: [ String : Any]) -> Void
 
-@objc(FSDFPBannerView)
-open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
 
+@objc(FSDFPBannerViewVariantO)
+open class FSDFPBannerViewVariantO: DFPOBannerView, GADBannerViewDelegate {    
+    
     // MARK: public properties
     @objc public private(set) var fsIdentifier:String?
     @objc public var paused: Bool
     @objc public weak var registrationDelegate:FSRegistrationDelegate?
     @objc public var isRegistered: Bool
-
+    
     // MARK: private properties
     private var fsTimer:FSWeakGCDTimer?
     private var fsEventHandler:FSAdEventHandler?
     private var fsRequest:GADRequest?
     private var _fsRefreshRate: TimeInterval
-
+    
     // MARK: computed properties
     @objc public var fsAdSize: CGSize {
         get {
@@ -43,14 +43,14 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
             super.adUnitID = newValue
         }
     }
-
+    
     @objc public var fsRefreshRate:TimeInterval {
         get {
             return _fsRefreshRate
         }
-
+        
         set(newValue) {
-            guard FSDFPBannerView.validate(newValue) else {
+            guard newValue.validateForBanner() else {
                 return
             }
             fsTimer = FSWeakGCDTimer.scheduledTimer(withTimeInterval: newValue,
@@ -58,7 +58,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
                                                     selector: #selector(self.fsReload),
                                                     userInfo: nil,
                                                     repeats: true,
-                                                    dispatchQueue: FSDFPBannerView.fsQueue)
+                                                    dispatchQueue: FSDFPBannerViewVariantO.fsQueue)
             _fsRefreshRate = newValue
         }
     }
@@ -68,7 +68,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         var queue = DispatchQueue(label: "io.freestar.mobile.queue.dfpbanner")
         return queue
     }()
-
+    
     deinit {
         // timer cleanup
         guard let timer = fsTimer else {
@@ -76,7 +76,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         }
         timer.invalidate()
     }
-
+    
     init(_ size: GADAdSize) {
         paused = false
         isRegistered = false
@@ -89,7 +89,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
             super.init(adSize: kGADAdSizeBanner)
         }
     }
-
+    
     public required init?(coder aDecoder: NSCoder) {
         paused = aDecoder.decodeObject(forKey: "paused") as! Bool
         isRegistered = aDecoder.decodeObject(forKey: "isRegistered") as! Bool
@@ -102,7 +102,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         
         super.init(coder: aDecoder)
     }
-
+    
     // MARK: convenience constructor
     @objc public convenience init(eventHandler: FSAdEventHandler?, size: GADAdSize) {
         self.init(size)
@@ -110,14 +110,14 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         isAutoloadEnabled = false
         delegate = self
     }
-
+    
     public override init(frame: CGRect) {
         paused = false
         isRegistered = false
         _fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         super.init(frame: frame)
     }
-
+    
     public override init(adSize: GADAdSize, origin: CGPoint) {
         paused = false
         isRegistered = false
@@ -125,44 +125,27 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         super.init(adSize: adSize, origin: origin)
     }
     
-    private func swapRequestIfNeeded(_ request: GADRequest?) -> GADRequest? {
-        guard let request = request else {
-            return nil
-        }
-
-        let className = String(describing: type(of: request))
-        guard className == "DFPORequest" else {
-            return request
-        }
-        let newRequest = DFPNRequest()
-        newRequest.categoryExclusions = request.categoryExclusions
-        newRequest.customTargeting = request.customTargeting
-        newRequest.publisherProvidedID = request.publisherProvidedID
-        newRequest.keywords = request.keywords
-        newRequest.testDevices = request.testDevices
-        newRequest.contentURL = request.contentURL
-        newRequest.requestAgent = request.requestAgent
-        
-        return newRequest
-    }
-
     // MARK: overriden methods
     @objc open override func load(_ request: GADRequest?) {
         guard let request = request else {
             return
         }
         
-        let swappedRequest = swapRequestIfNeeded(request)
-        Utils.shared.removeHBKeywords(request: swappedRequest)
-        Utils.shared.validateAndAttachKeywords(request: swappedRequest, identifier: fsIdentifier)
-        super.load(swappedRequest)
-        fsRequest = swappedRequest
+        guard request.validateForBannerVariant(type(of:self)) else {
+            fatalError("Variant banner type mismatch.")
+            return
+        }
+                
+        Utils.shared.removeHBKeywords(request: request)
+        Utils.shared.validateAndAttachKeywords(request: request, identifier: fsIdentifier)
+        super.load(request)
+        fsRequest = request
         if fsTimer == nil {
             // initialize timer
             fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         }
     }
-
+    
     // MARK: overriden properties
     open override var adSize: GADAdSize {
         // ensure valid ad size
@@ -182,22 +165,17 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
     @objc public func setFsRefreshRate(_ refreshRate: TimeInterval, sender: Any?) {
         // only set refresh rate if it hasn't been set
         guard _fsRefreshRate == TimeInterval.bannerRefreshIntervalDefault
-            && FSDFPBannerView.validate(refreshRate) else {
-            return
+            && refreshRate.validateForBanner() else {
+                return
         }
         fsRefreshRate = refreshRate
     }
     
-    static func validate(_ refreshRate: TimeInterval) -> Bool {
-        return refreshRate < TimeInterval.bannerRefreshIntervalMax && refreshRate
-            > TimeInterval.bannerRefreshIntervalMin
-    }
-
     // MARK: pause / refresh
     @objc public func pauseRefresh() {
         paused = true
     }
-
+    
     @objc public func resumeRefresh() {
         paused = false
         guard let timer = fsTimer else {
@@ -205,7 +183,7 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
         }
         timer.fire()
     }
-
+    
     // MARK: internal reload
     @objc func fsReload() {
         var skipReload = false
@@ -223,11 +201,11 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
                 }
             })
         }
-
+        
         if skipReload || paused {
             return
         }
-
+        
         // only allow reload if loadRequest was called
         if let _ = adUnitID, let request = fsRequest  {
             DispatchQueue.main.async(execute: {
@@ -237,34 +215,34 @@ open class FSDFPBannerView: DFPNOctagonBannerView, GADBannerViewDelegate {
             })
         }
     }
-
+    
     // MARK: GADBannerViewDelegate
     public func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         self.resize(bannerView.adSize)
         guard let _ = fsEventHandler else { return }
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
     }
-
+    
     public func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         guard let _ = fsEventHandler else { return }
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView, String.eventErrorKey : error])
     }
-
+    
     public func adViewWillPresentScreen(_ bannerView: GADBannerView) {
         guard let _ = fsEventHandler else { return }
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
     }
-
+    
     public func adViewWillDismissScreen(_ bannerView: GADBannerView) {
         guard let _ = fsEventHandler else { return }
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
     }
-
+    
     public func adViewDidDismissScreen(_ bannerView: GADBannerView) {
         guard let _ = fsEventHandler else { return }
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
     }
-
+    
     public func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
         guard let _ = fsEventHandler else { return }
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
