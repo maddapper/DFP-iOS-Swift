@@ -29,41 +29,31 @@ public class Utils: NSObject {
         super.init()
         
     }
+
+//    func bidManager() throws -> NSObject? {
+//        guard let bidManagerClass: NSObject.Type = "PBBidManager".convertToClass(Bundle.prebid) else {
+//            throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
+//        }
+//
+//        guard let bidManager: NSObject = bidManagerClass.perform(NSSelectorFromString("sharedInstance"))?.takeUnretainedValue() as? NSObject else {
+//            throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
+//        }
+//        return bidManager
+//    }
+//
+//    func adUnitWith(identifier: String?) -> NSObject? {
+//        let adUnitByIdentifierSelector = NSSelectorFromString("adUnitByIdentifier:")
+//        if (try! bidManager()!.responds(to: adUnitByIdentifierSelector)) {
+//            guard let adUnit: NSObject = (try! bidManager()!.perform(adUnitByIdentifierSelector, with: identifier)?.takeUnretainedValue()) as? NSObject else {
+//                return nil
+//            }
+//            return adUnit
+//        }
+//        return nil
+//    }
     
-    func bidManager() throws -> NSObject? {
-        guard let bidManagerClass: NSObject.Type = "PBBidManager".convertToClass(Bundle.prebid) else {
-            throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
-        }
-        
-        guard let bidManager: NSObject = bidManagerClass.perform(NSSelectorFromString("sharedInstance"))?.takeUnretainedValue() as? NSObject else {
-            throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
-        }
-        return bidManager
-    }
-    
-    func adUnitWith(identifier: String?) -> NSObject? {        
-        let adUnitByIdentifierSelector = NSSelectorFromString("adUnitByIdentifier:")
-        if (try! bidManager()!.responds(to: adUnitByIdentifierSelector)) {
-            guard let adUnit: NSObject = (try! bidManager()!.perform(adUnitByIdentifierSelector, with: identifier)?.takeUnretainedValue()) as? NSObject else {
-                return nil
-            }
-            return adUnit
-        }
-        return nil
-    }
-    
-    func keywordsFor(identifier: String) -> [String: Any]? {
-        guard let adUnit = adUnitWith(identifier: identifier) else {
-            return nil
-        }
-        let keywordsForWinningBidForAdUnitSelector = NSSelectorFromString("keywordsForWinningBidForAdUnit:")
-        if (try! bidManager()!.responds(to: keywordsForWinningBidForAdUnitSelector)) {
-            guard let keywords: [String:Any] = try! bidManager()!.perform(keywordsForWinningBidForAdUnitSelector, with: adUnit)?.takeUnretainedValue() as? [String:Any] else {
-                return nil
-            }
-            return keywords
-        }
-        return nil
+    func keywordsFor(identifier: String) -> [AnyHashable: Any]? {
+        return PrebidRuntimeUtils.keywords(withIdentifier: identifier)
     }
     
     func mergeFSAppKVPair(_ keywords: [AnyHashable: Any]) -> [AnyHashable: Any] {

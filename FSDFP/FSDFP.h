@@ -21,3 +21,4 @@ FOUNDATION_EXPORT const unsigned char FSDFPVersionString[];
 #import <FSDFP/DFPNInterstitial.h>
 #import <FSDFP/FSDFPInterstitial.h>
 #import <FSDFP/DFPNRequest.h>
+#import <FSDFP/PrebidRuntimeUtils.h>

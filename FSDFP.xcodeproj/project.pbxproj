@@ -35,6 +35,10 @@
 		055D3B01225FAD40003F583D /* FSDFP.h in Headers */ = {isa = PBXBuildFile; fileRef = 055D3AF3225FAD3F003F583D /* FSDFP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		055D3B0B225FB0F2003F583D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3B0A225FB0F2003F583D /* UIKit.framework */; };
 		055D3B0D225FB107003F583D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3B0C225FB107003F583D /* QuartzCore.framework */; };
+		058DE8EA22930C2200E9CD64 /* PrebidRuntimeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 058DE8E822930C2200E9CD64 /* PrebidRuntimeUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		058DE8EB22930C2200E9CD64 /* PrebidRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 058DE8E922930C2200E9CD64 /* PrebidRuntimeUtils.m */; };
+		058DE8EE22930C9500E9CD64 /* FSDFPException.h in Headers */ = {isa = PBXBuildFile; fileRef = 058DE8EC22930C9500E9CD64 /* FSDFPException.h */; };
+		058DE8EF22930C9500E9CD64 /* FSDFPException.m in Sources */ = {isa = PBXBuildFile; fileRef = 058DE8ED22930C9500E9CD64 /* FSDFPException.m */; };
 		05B7BABF228DE76F005E956D /* GADAdSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BABE228DE76F005E956D /* GADAdSize+Extensions.swift */; };
 		05B7BBFA227A5F1D009FDD3B /* DFPNOctagonBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05B7BBFC227A6BD1009FDD3B /* FSDFPBannerViewVariantN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BBFB227A6BD1009FDD3B /* FSDFPBannerViewVariantN.swift */; };
@@ -75,6 +79,10 @@
 		055D3B00225FAD40003F583D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055D3B0A225FB0F2003F583D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		055D3B0C225FB107003F583D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		058DE8E822930C2200E9CD64 /* PrebidRuntimeUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrebidRuntimeUtils.h; sourceTree = "<group>"; };
+		058DE8E922930C2200E9CD64 /* PrebidRuntimeUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrebidRuntimeUtils.m; sourceTree = "<group>"; };
+		058DE8EC22930C9500E9CD64 /* FSDFPException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSDFPException.h; sourceTree = "<group>"; };
+		058DE8ED22930C9500E9CD64 /* FSDFPException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSDFPException.m; sourceTree = "<group>"; };
 		05B7BABE228DE76F005E956D /* GADAdSize+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GADAdSize+Extensions.swift"; sourceTree = "<group>"; };
 		05B7BBF9227A5C8C009FDD3B /* DFPNOctagonBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFPNOctagonBannerView.h; sourceTree = "<group>"; };
 		05B7BBFB227A6BD1009FDD3B /* FSDFPBannerViewVariantN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPBannerViewVariantN.swift; sourceTree = "<group>"; };
@@ -173,6 +181,10 @@
 				05BD72F1228F83FE008BDBF4 /* DFPOBannerView.h */,
 				05BD72F3228F84C5008BDBF4 /* TimeInterval+Extensions.swift */,
 				05BD72F52290D2DC008BDBF4 /* GADRequest+Extensions.swift */,
+				058DE8E822930C2200E9CD64 /* PrebidRuntimeUtils.h */,
+				058DE8E922930C2200E9CD64 /* PrebidRuntimeUtils.m */,
+				058DE8EC22930C9500E9CD64 /* FSDFPException.h */,
+				058DE8ED22930C9500E9CD64 /* FSDFPException.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -204,9 +216,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				058DE8EE22930C9500E9CD64 /* FSDFPException.h in Headers */,
 				05BD72F2228F8405008BDBF4 /* DFPOBannerView.h in Headers */,
 				05B7BC052280C47E009FDD3B /* FSDFPInterstitial.h in Headers */,
 				055D3B01225FAD40003F583D /* FSDFP.h in Headers */,
+				058DE8EA22930C2200E9CD64 /* PrebidRuntimeUtils.h in Headers */,
 				05B7BC022280C446009FDD3B /* DFPNInterstitial.h in Headers */,
 				053F953B2289FA980055E7BB /* DFPNRequest.h in Headers */,
 				05B7BBFA227A5F1D009FDD3B /* DFPNOctagonBannerView.h in Headers */,
@@ -418,7 +432,9 @@
 				05BD72F4228F84C5008BDBF4 /* TimeInterval+Extensions.swift in Sources */,
 				053F95382289F8DD0055E7BB /* Utils.swift in Sources */,
 				053F9540228A053F0055E7BB /* Bundle+Extensions.swift in Sources */,
+				058DE8EF22930C9500E9CD64 /* FSDFPException.m in Sources */,
 				053F9542228A124E0055E7BB /* Collection+Extensions.swift in Sources */,
+				058DE8EB22930C2200E9CD64 /* PrebidRuntimeUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
