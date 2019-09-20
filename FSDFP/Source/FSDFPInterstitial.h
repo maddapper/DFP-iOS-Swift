@@ -8,11 +8,11 @@
 
 
 #import <UIKit/UIKit.h>
-#import "DFPNInterstitial.h"
+#import <GoogleMobileAds/DFPInterstitial.h>
 
 @protocol FSRegistrationDelegate;
 
-@interface FSDFPInterstitial : DFPNInterstitial <GADInterstitialDelegate>
+@interface FSDFPInterstitial : DFPInterstitial <GADInterstitialDelegate>
 
 @property (nonatomic, copy, nullable) NSString *fsIdentifier;
 @property (nonatomic, weak, nullable) id<FSRegistrationDelegate> registrationDelegate;

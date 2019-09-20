@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoogleMobileAds
 
 extension GADAdSize {
     // MARK: size validation

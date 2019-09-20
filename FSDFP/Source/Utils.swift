@@ -14,6 +14,7 @@
  */
 
 import Foundation
+import GoogleMobileAds
 
 public class Utils: NSObject {
     
@@ -62,7 +63,7 @@ public class Utils: NSObject {
         return fsAppKV
     }
     
-    @objc public func removeHBKeywords(request: GADRequest?) {
+    @objc public func removeHBKeywords(request: DFPRequest?) {
         precondition(request != nil)
         guard let gadRequest = request else {
             return
@@ -83,7 +84,7 @@ public class Utils: NSObject {
         gadRequest.customTargeting = existingDict
     }
 
-    @objc func validateAndAttachKeywords(request: GADRequest?, identifier: String?) {
+    @objc func validateAndAttachKeywords(request: DFPRequest?, identifier: String?) {
         precondition(request != nil)
         precondition(identifier != nil)
         guard let gadRequest = request else {

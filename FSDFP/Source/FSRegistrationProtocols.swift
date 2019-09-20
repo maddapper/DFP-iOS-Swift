@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoogleMobileAds
 
 /**
  * Protocol that informs the delegate of registration status.

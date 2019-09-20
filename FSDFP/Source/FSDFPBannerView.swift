@@ -1,8 +1,8 @@
 //
-//  FSDFPBannerViewVariantO.swift
+//  FSDFPBannerView.swift
 //  FSDFP
 //
-//  Created by Dean Chang on 5/1/19.
+//  Created by Dean Chang on 9/19/19.
 //  Copyright © 2019 Freestar. All rights reserved.
 //
 
@@ -10,10 +10,8 @@ import Foundation
 import GoogleMobileAds
 import FSCommon
 
-
-
-@objc(FSDFPBannerViewVariantO)
-open class FSDFPBannerViewVariantO: DFPOBannerView, GADBannerViewDelegate {    
+@objc(FSDFPBannerView)
+open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     
     // MARK: public properties
     @objc public private(set) var fsIdentifier:String?
@@ -58,7 +56,7 @@ open class FSDFPBannerViewVariantO: DFPOBannerView, GADBannerViewDelegate {
                                                     selector: #selector(self.fsReload),
                                                     userInfo: nil,
                                                     repeats: true,
-                                                    dispatchQueue: FSDFPBannerViewVariantO.fsQueue)
+                                                    dispatchQueue: FSDFPBannerView.fsQueue)
             _fsRefreshRate = newValue
         }
     }
@@ -132,12 +130,11 @@ open class FSDFPBannerViewVariantO: DFPOBannerView, GADBannerViewDelegate {
         }
         
         guard request.validateForBannerVariant(type(of:self)) else {
-            fatalError("Variant banner type mismatch.")
-            return
+            fatalError("Variant banner type mismatch.")            
         }
-                
-        Utils.shared.removeHBKeywords(request: request)
-        Utils.shared.validateAndAttachKeywords(request: request, identifier: fsIdentifier)
+        
+        Utils.shared.removeHBKeywords(request: request as? DFPRequest)
+        Utils.shared.validateAndAttachKeywords(request: request as? DFPRequest, identifier: fsIdentifier)
         super.load(request)
         fsRequest = request
         if fsTimer == nil {
@@ -169,6 +166,11 @@ open class FSDFPBannerViewVariantO: DFPOBannerView, GADBannerViewDelegate {
                 return
         }
         fsRefreshRate = refreshRate
+    }
+    
+    static func validate(_ refreshRate: TimeInterval) -> Bool {
+        return refreshRate < TimeInterval.bannerRefreshIntervalMax && refreshRate
+            > TimeInterval.bannerRefreshIntervalMin
     }
     
     // MARK: pause / refresh
@@ -209,8 +211,8 @@ open class FSDFPBannerViewVariantO: DFPOBannerView, GADBannerViewDelegate {
         // only allow reload if loadRequest was called
         if let _ = adUnitID, let request = fsRequest  {
             DispatchQueue.main.async(execute: {
-                Utils.shared.removeHBKeywords(request: request)
-                Utils.shared.validateAndAttachKeywords(request: request, identifier: self.fsIdentifier)
+                Utils.shared.removeHBKeywords(request: request as? DFPRequest)
+                Utils.shared.validateAndAttachKeywords(request: request as? DFPRequest, identifier: self.fsIdentifier)
                 super.load(request)
             })
         }
@@ -248,3 +250,4 @@ open class FSDFPBannerViewVariantO: DFPOBannerView, GADBannerViewDelegate {
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
     }
 }
+
