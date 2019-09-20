@@ -12,6 +12,7 @@ public typealias FSAdEventHandler = @convention(block) (_ methodName: String, _ 
 
 extension String {
     static let eventBannerViewKey = "bannerView"
+    static let eventInterstitialKey = "interstitial"
     static let eventErrorKey = "error"
     static let PB_GDPR_ConsentString = "kPBGDPRConsentString"
     static let PB_GDPR_SubjectToConsent = "kPBGdprSubjectToConsent"
@@ -19,11 +20,6 @@ extension String {
     static let IAB_GDPR_ConsentString = "IABConsent_ConsentString"
     static let EMPTY_String = ""
     static let kIFASentinelValue = "00000000-0000-0000-0000-000000000000"
-    static let DFP_Object_Name = "DFPRequest"
-    static let DFP_N_Object_Name = "DFPNRequest"
-    static let DFP_O_Object_Name = "DFPORequest"
-    static let GAD_Object_Name = "GADRequest"
-    static let GAD_N_Object_Name = "GADNRequest"
 }
 
 extension TimeInterval {

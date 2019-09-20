@@ -15,6 +15,7 @@
 
 import Foundation
 import GoogleMobileAds
+import PrebidMobileFS
 
 public class Utils: NSObject {
     
@@ -30,31 +31,13 @@ public class Utils: NSObject {
         super.init()
         
     }
-
-//    func bidManager() throws -> NSObject? {
-//        guard let bidManagerClass: NSObject.Type = "PBBidManager".convertToClass(Bundle.prebid) else {
-//            throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
-//        }
-//
-//        guard let bidManager: NSObject = bidManagerClass.perform(NSSelectorFromString("sharedInstance"))?.takeUnretainedValue() as? NSObject else {
-//            throw FSDFPErrors.PrebidFrameworkMissing("Prebid framework not found.")
-//        }
-//        return bidManager
-//    }
-//
-//    func adUnitWith(identifier: String?) -> NSObject? {
-//        let adUnitByIdentifierSelector = NSSelectorFromString("adUnitByIdentifier:")
-//        if (try! bidManager()!.responds(to: adUnitByIdentifierSelector)) {
-//            guard let adUnit: NSObject = (try! bidManager()!.perform(adUnitByIdentifierSelector, with: identifier)?.takeUnretainedValue()) as? NSObject else {
-//                return nil
-//            }
-//            return adUnit
-//        }
-//        return nil
-//    }
     
     func keywordsFor(identifier: String) -> [AnyHashable: Any]? {
-        return PrebidRuntimeUtils.keywords(withIdentifier: identifier)
+        let adUnit: PBAdUnit? = PBBidManager.sharedInstance().adUnit(byIdentifier: identifier)
+        guard let validAdUnit = adUnit else {
+            return nil
+        }
+        return PBBidManager.sharedInstance().keywordsForWinningBid(for: validAdUnit)
     }
     
     func mergeFSAppKVPair(_ keywords: [AnyHashable: Any]) -> [AnyHashable: Any] {

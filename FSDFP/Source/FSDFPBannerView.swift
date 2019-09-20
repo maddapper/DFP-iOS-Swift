@@ -15,15 +15,15 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     
     // MARK: public properties
     @objc public private(set) var fsIdentifier:String?
-    @objc public var paused: Bool
+    @objc public var paused: Bool = false
     @objc public weak var registrationDelegate:FSRegistrationDelegate?
-    @objc public var isRegistered: Bool
+    @objc public var isRegistered: Bool = false
     
     // MARK: private properties
     private var fsTimer:FSWeakGCDTimer?
     private var fsEventHandler:FSAdEventHandler?
     private var fsRequest:GADRequest?
-    private var _fsRefreshRate: TimeInterval
+    private var _fsRefreshRate: TimeInterval = TimeInterval.bannerRefreshIntervalDefault
     
     // MARK: computed properties
     @objc public var fsAdSize: CGSize {
@@ -76,9 +76,6 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     }
     
     init(_ size: GADAdSize) {
-        paused = false
-        isRegistered = false
-        _fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         if (size.validate()) {
             super.init(adSize: size)
             validAdSizes = [NSValueFromGADAdSize(size)]
@@ -110,16 +107,10 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     }
     
     public override init(frame: CGRect) {
-        paused = false
-        isRegistered = false
-        _fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         super.init(frame: frame)
     }
     
     public override init(adSize: GADAdSize, origin: CGPoint) {
-        paused = false
-        isRegistered = false
-        _fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         super.init(adSize: adSize, origin: origin)
     }
     
@@ -127,10 +118,6 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     @objc open override func load(_ request: GADRequest?) {
         guard let request = request else {
             return
-        }
-        
-        guard request.validateForBannerVariant(type(of:self)) else {
-            fatalError("Variant banner type mismatch.")            
         }
         
         Utils.shared.removeHBKeywords(request: request as? DFPRequest)

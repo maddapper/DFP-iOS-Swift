@@ -23,8 +23,6 @@
 /* Begin PBXBuildFile section */
 		0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */; };
 		053F95382289F8DD0055E7BB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F95372289F8DD0055E7BB /* Utils.swift */; };
-		053F953E2289FD7E0055E7BB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F953D2289FD7E0055E7BB /* String+Extensions.swift */; };
-		053F9540228A053F0055E7BB /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F953F228A053F0055E7BB /* Bundle+Extensions.swift */; };
 		053F9542228A124E0055E7BB /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F9541228A124E0055E7BB /* Collection+Extensions.swift */; };
 		055122C6226F966700FDA8E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055122C5226F966700FDA8E7 /* Constants.swift */; };
 		055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */; };
@@ -33,18 +31,12 @@
 		055D3B01225FAD40003F583D /* FSDFP.h in Headers */ = {isa = PBXBuildFile; fileRef = 055D3AF3225FAD3F003F583D /* FSDFP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		055D3B0B225FB0F2003F583D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3B0A225FB0F2003F583D /* UIKit.framework */; };
 		055D3B0D225FB107003F583D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3B0C225FB107003F583D /* QuartzCore.framework */; };
-		058DE8EA22930C2200E9CD64 /* PrebidRuntimeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 058DE8E822930C2200E9CD64 /* PrebidRuntimeUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		058DE8EB22930C2200E9CD64 /* PrebidRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 058DE8E922930C2200E9CD64 /* PrebidRuntimeUtils.m */; };
-		058DE8EE22930C9500E9CD64 /* FSDFPException.h in Headers */ = {isa = PBXBuildFile; fileRef = 058DE8EC22930C9500E9CD64 /* FSDFPException.h */; };
-		058DE8EF22930C9500E9CD64 /* FSDFPException.m in Sources */ = {isa = PBXBuildFile; fileRef = 058DE8ED22930C9500E9CD64 /* FSDFPException.m */; };
 		05B7BABF228DE76F005E956D /* GADAdSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BABE228DE76F005E956D /* GADAdSize+Extensions.swift */; };
-		05B7BC052280C47E009FDD3B /* FSDFPInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */; };
-		05B7BC062280C47E009FDD3B /* FSDFPInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */; };
 		05BD72F4228F84C5008BDBF4 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD72F3228F84C5008BDBF4 /* TimeInterval+Extensions.swift */; };
-		05BD72F62290D2DC008BDBF4 /* GADRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD72F52290D2DC008BDBF4 /* GADRequest+Extensions.swift */; };
 		05F8123D2334129400416D56 /* FSDFPBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8123C2334129400416D56 /* FSDFPBannerView.swift */; };
 		F8A00E05C779013CB7DAACEE /* Pods_FSDFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99937278D1262FF94DAF81C /* Pods_FSDFP.framework */; };
 		F9B04A91625F9FFD8D6F6917 /* Pods_FSDFPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231CBDF39C6D211BCE9FEB95 /* Pods_FSDFPTests.framework */; };
+		FD8C3B1423357E83001C563C /* FSDFPInterstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8C3B1323357E83001C563C /* FSDFPInterstitial.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +52,6 @@
 /* Begin PBXFileReference section */
 		0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSRegistrationProtocols.swift; sourceTree = "<group>"; };
 		053F95372289F8DD0055E7BB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		053F953D2289FD7E0055E7BB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		053F953F228A053F0055E7BB /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		053F9541228A124E0055E7BB /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		055122C5226F966700FDA8E7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPErrors.swift; sourceTree = "<group>"; };
@@ -73,15 +63,8 @@
 		055D3B00225FAD40003F583D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055D3B0A225FB0F2003F583D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		055D3B0C225FB107003F583D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		058DE8E822930C2200E9CD64 /* PrebidRuntimeUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrebidRuntimeUtils.h; sourceTree = "<group>"; };
-		058DE8E922930C2200E9CD64 /* PrebidRuntimeUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrebidRuntimeUtils.m; sourceTree = "<group>"; };
-		058DE8EC22930C9500E9CD64 /* FSDFPException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSDFPException.h; sourceTree = "<group>"; };
-		058DE8ED22930C9500E9CD64 /* FSDFPException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSDFPException.m; sourceTree = "<group>"; };
 		05B7BABE228DE76F005E956D /* GADAdSize+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GADAdSize+Extensions.swift"; sourceTree = "<group>"; };
-		05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSDFPInterstitial.h; sourceTree = "<group>"; };
-		05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSDFPInterstitial.m; sourceTree = "<group>"; };
 		05BD72F3228F84C5008BDBF4 /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
-		05BD72F52290D2DC008BDBF4 /* GADRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GADRequest+Extensions.swift"; sourceTree = "<group>"; };
 		05F8123C2334129400416D56 /* FSDFPBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPBannerView.swift; sourceTree = "<group>"; };
 		231CBDF39C6D211BCE9FEB95 /* Pods_FSDFPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSDFPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91275D9E33D9FD6BD73A6FDC /* Pods-FSDFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFPTests.debug.xcconfig"; path = "Target Support Files/Pods-FSDFPTests/Pods-FSDFPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +72,7 @@
 		DA949FAEA8506631A83F47FC /* Pods-FSDFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFP.debug.xcconfig"; path = "Target Support Files/Pods-FSDFP/Pods-FSDFP.debug.xcconfig"; sourceTree = "<group>"; };
 		E47A66737FB816CF12C8B28D /* Pods-FSDFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFPTests.release.xcconfig"; path = "Target Support Files/Pods-FSDFPTests/Pods-FSDFPTests.release.xcconfig"; sourceTree = "<group>"; };
 		F99937278D1262FF94DAF81C /* Pods_FSDFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSDFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD8C3B1323357E83001C563C /* FSDFPInterstitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPInterstitial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,21 +142,13 @@
 			children = (
 				055122C5226F966700FDA8E7 /* Constants.swift */,
 				055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */,
-				05B7BC032280C47E009FDD3B /* FSDFPInterstitial.h */,
-				05B7BC042280C47E009FDD3B /* FSDFPInterstitial.m */,
 				0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */,
 				053F95372289F8DD0055E7BB /* Utils.swift */,
-				053F953D2289FD7E0055E7BB /* String+Extensions.swift */,
-				053F953F228A053F0055E7BB /* Bundle+Extensions.swift */,
 				053F9541228A124E0055E7BB /* Collection+Extensions.swift */,
 				05B7BABE228DE76F005E956D /* GADAdSize+Extensions.swift */,
 				05BD72F3228F84C5008BDBF4 /* TimeInterval+Extensions.swift */,
-				05BD72F52290D2DC008BDBF4 /* GADRequest+Extensions.swift */,
-				058DE8E822930C2200E9CD64 /* PrebidRuntimeUtils.h */,
-				058DE8E922930C2200E9CD64 /* PrebidRuntimeUtils.m */,
-				058DE8EC22930C9500E9CD64 /* FSDFPException.h */,
-				058DE8ED22930C9500E9CD64 /* FSDFPException.m */,
 				05F8123C2334129400416D56 /* FSDFPBannerView.swift */,
+				FD8C3B1323357E83001C563C /* FSDFPInterstitial.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -206,10 +182,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				058DE8EE22930C9500E9CD64 /* FSDFPException.h in Headers */,
-				05B7BC052280C47E009FDD3B /* FSDFPInterstitial.h in Headers */,
 				055D3B01225FAD40003F583D /* FSDFP.h in Headers */,
-				058DE8EA22930C2200E9CD64 /* PrebidRuntimeUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,19 +374,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */,
-				053F953E2289FD7E0055E7BB /* String+Extensions.swift in Sources */,
 				055122C6226F966700FDA8E7 /* Constants.swift in Sources */,
 				05B7BABF228DE76F005E956D /* GADAdSize+Extensions.swift in Sources */,
-				05B7BC062280C47E009FDD3B /* FSDFPInterstitial.m in Sources */,
-				05BD72F62290D2DC008BDBF4 /* GADRequest+Extensions.swift in Sources */,
 				0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */,
 				05BD72F4228F84C5008BDBF4 /* TimeInterval+Extensions.swift in Sources */,
 				053F95382289F8DD0055E7BB /* Utils.swift in Sources */,
-				053F9540228A053F0055E7BB /* Bundle+Extensions.swift in Sources */,
-				058DE8EF22930C9500E9CD64 /* FSDFPException.m in Sources */,
+				FD8C3B1423357E83001C563C /* FSDFPInterstitial.swift in Sources */,
 				053F9542228A124E0055E7BB /* Collection+Extensions.swift in Sources */,
 				05F8123D2334129400416D56 /* FSDFPBannerView.swift in Sources */,
-				058DE8EB22930C2200E9CD64 /* PrebidRuntimeUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

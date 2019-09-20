@@ -19,7 +19,7 @@ public protocol FSRegistrationDelegate: NSObjectProtocol {
      * @param identifier A unique ad idenitifier.
      */
     func didRegister(forIdentifier identifier: String)
-    
+
     /**
      * This method notifies the delegate when the registration has failed.
      * @param identifier A unique ad idenitifier.
