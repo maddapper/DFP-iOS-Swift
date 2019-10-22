@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'FSDFP/*.{h}'
   s.source_files     = 'FSDFP/Source/*.{h,m,swift}'
   s.framework        = ['UIKit', 'Foundation']
+  s.dependency 'Google-Mobile-Ads-SDK', '7.50.0'
   # s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/"' }
   s.xcconfig         = {
                         :LIBRARY_SEARCH_PATHS => '$(inherited)',
