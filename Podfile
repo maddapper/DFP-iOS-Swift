@@ -3,7 +3,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target "FSDFP" do
-  pod 'FSCommon', :git => 'https://github.com/freestarcapital/FSCommon.git'
+  pod 'FSCommon'
   pod 'Google-Mobile-Ads-SDK', '~> 7.50.0'
   pod 'PrebidMobileFS'
 #  pod 'GoogleUtilities', '6.3.0'
@@ -12,7 +12,7 @@ target "FSDFP" do
 end
 
 target "FSDFPTests" do
-  pod 'FSCommon', :git => 'https://github.com/freestarcapital/FSCommon.git'
+  pod 'FSCommon'
   pod 'Google-Mobile-Ads-SDK', '~> 7.50.0'
   pod 'PrebidMobileFS'
 end

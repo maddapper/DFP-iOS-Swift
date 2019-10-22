@@ -34,27 +34,19 @@ PODS:
     - FSCache
 
 DEPENDENCIES:
-  - FSCommon (from `https://github.com/freestarcapital/FSCommon.git`)
+  - FSCommon
   - Google-Mobile-Ads-SDK (~> 7.50.0)
   - PrebidMobileFS
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FSCache
+    - FSCommon
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
     - PrebidMobileFS
-
-EXTERNAL SOURCES:
-  FSCommon:
-    :git: https://github.com/freestarcapital/FSCommon.git
-
-CHECKOUT OPTIONS:
-  FSCommon:
-    :commit: 985a2b077d321e7a9c7b92a338e5a91c6f9c8209
-    :git: https://github.com/freestarcapital/FSCommon.git
 
 SPEC CHECKSUMS:
   FSCache: c6ea4c84d130a4125f95899b2ce2e0b685e44f92
@@ -65,6 +57,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   PrebidMobileFS: 31ba56ee60ff2f05486517ab5a11d44a5a1c0541
 
-PODFILE CHECKSUM: 2837034a596a16ab804daef2ff8303049b047cb2
+PODFILE CHECKSUM: a4219d9c71ea747b79710415823233e9de2ccd03
 
 COCOAPODS: 1.8.4
