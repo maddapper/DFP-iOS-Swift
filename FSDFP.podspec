@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.dependency      'Google-Mobile-Ads-SDK', '7.50.0'
   s.dependency	    'PrebidMobileFS', '~> 0.6.1'
   s.dependency	    'FSCache'
+  s.dependency	    'FSCommon'
   s.static_framework = true
   s.default_subspec  = 'Common'
   # s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/"' }
@@ -25,10 +26,4 @@ Pod::Spec.new do |s|
                         :HEADER_SEARCH_PATHS => '$(inherited)',
                         :FRAMEWORK_SEARCH_PATHS => '$(inherited)'
                       }
-
-  s.subspec 'Common' do |common|
-    common.source_files = 'Pods/FSCommon/build/FSCommon.framework/Headers/*.{h}'
-    common.vendored_frameworks = 'Pods/FSCommon/build/FSCommon.framework'
-    common.preserve_paths =  'Pods/FSCommon/build/FSCommon.framework/*'
-  end
 end
