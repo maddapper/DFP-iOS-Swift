@@ -10,10 +10,11 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '9.0'
   s.source           = { :git => 'https://github.com/maddapper/DFP-iOS-Swift.git', :tag => s.version.to_s }
   s.swift_version    = '5.0'
-  s.public_header_files = '*.{h}'
-  s.source_files     = 'Source/*.{h,m,swift}'
+  s.public_header_files = 'FSDFP/*.{h}'
+  s.source_files     = 'FSDFP/Source/*.{h,m,swift}'
   s.framework        = ['UIKit', 'Foundation']
   s.dependency 'Google-Mobile-Ads-SDK', '7.50.0'
+  s.dependency	       'PrebidMobileFS', '~> 0.6.1'
   s.static_framework = true
   # s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/"' }
   s.xcconfig         = {
