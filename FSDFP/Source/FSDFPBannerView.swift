@@ -135,7 +135,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         // ensure valid ad size
         set {
             if newValue.validate() {
-                super.adSize = adSize
+                super.adSize = newValue
             } else {
                 assertionFailure("Cannot instantiate ad object due to invalid ad size: \(NSStringFromGADAdSize(adSize))")
             }
