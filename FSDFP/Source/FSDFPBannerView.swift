@@ -167,35 +167,22 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     
     @objc public func resumeRefresh() {
         paused = false
-        guard let timer = fsTimer else {
+        if (fsTimer == nil) {
+            // load was never called to begin with
             return
         }
-        timer.fire()
+        fsLoad()
     }
     
     // MARK: internal reload
     @objc func fsReload() {
-        var skipReload = false
-        if Thread.isMainThread {
-            // only allow reload if view is in window
-            if superview == nil {
-                skipReload = true
-            }
-        } else {
-            weak var weakSelf = self
-            DispatchQueue.main.sync(execute: {
-                let strongSelf = weakSelf
-                if strongSelf?.superview == nil {
-                    skipReload = true
-                }
-            })
-        }
-        
-        if skipReload || paused {
+        if (skipReload()) {
             return
         }
-        
-        // only allow reload if loadRequest was called
+        fsLoad()
+    }
+    
+    func fsLoad() {
         if let _ = adUnitID, let request = fsRequest  {
             DispatchQueue.main.async(execute: {
                 Utils.shared.removeHBKeywords(request: request as? DFPRequest)
@@ -203,6 +190,20 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
                 super.load(request)
             })
         }
+    }
+    
+    func skipReload() -> Bool {
+        if (paused) {
+            return true
+        }
+                
+        if Thread.isMainThread {
+            // skip reload if ad view is not in superview
+            if superview == nil {
+                return true
+            }
+        }
+        return false;
     }
     
     // MARK: GADBannerViewDelegate
