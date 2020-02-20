@@ -36,6 +36,7 @@
 		05F8123D2334129400416D56 /* FSDFPBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8123C2334129400416D56 /* FSDFPBannerView.swift */; };
 		F8A00E05C779013CB7DAACEE /* Pods_FSDFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99937278D1262FF94DAF81C /* Pods_FSDFP.framework */; };
 		F9B04A91625F9FFD8D6F6917 /* Pods_FSDFPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231CBDF39C6D211BCE9FEB95 /* Pods_FSDFPTests.framework */; };
+		FD1533C023FE0B780056407E /* OSLog+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1533BF23FE0B780056407E /* OSLog+Extensions.swift */; };
 		FD8C3B1423357E83001C563C /* FSDFPInterstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8C3B1323357E83001C563C /* FSDFPInterstitial.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		DA949FAEA8506631A83F47FC /* Pods-FSDFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFP.debug.xcconfig"; path = "Target Support Files/Pods-FSDFP/Pods-FSDFP.debug.xcconfig"; sourceTree = "<group>"; };
 		E47A66737FB816CF12C8B28D /* Pods-FSDFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDFPTests.release.xcconfig"; path = "Target Support Files/Pods-FSDFPTests/Pods-FSDFPTests.release.xcconfig"; sourceTree = "<group>"; };
 		F99937278D1262FF94DAF81C /* Pods_FSDFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSDFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1533BF23FE0B780056407E /* OSLog+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+Extensions.swift"; sourceTree = "<group>"; };
 		FD8C3B1323357E83001C563C /* FSDFPInterstitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPInterstitial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 				05BD72F3228F84C5008BDBF4 /* TimeInterval+Extensions.swift */,
 				05F8123C2334129400416D56 /* FSDFPBannerView.swift */,
 				FD8C3B1323357E83001C563C /* FSDFPInterstitial.swift */,
+				FD1533BF23FE0B780056407E /* OSLog+Extensions.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1533C023FE0B780056407E /* OSLog+Extensions.swift in Sources */,
 				055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */,
 				055122C6226F966700FDA8E7 /* Constants.swift in Sources */,
 				05B7BABF228DE76F005E956D /* GADAdSize+Extensions.swift in Sources */,

@@ -9,9 +9,13 @@
 import Foundation
 import GoogleMobileAds
 import FSCommon
+import os
 
 @objc(FSDFPBannerView)
 open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
+    // logger
+    @available(iOS 10, *)
+    lazy private(set) var logger = OSLog(FSDFPBannerView.self, category: String.loggerBannerCategory)
     
     // MARK: public properties
     @objc public private(set) var fsIdentifier:String?
@@ -182,13 +186,11 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
                 skipReload = true
             }
         } else {
-            weak var weakSelf = self
-            DispatchQueue.main.sync(execute: {
-                let strongSelf = weakSelf
-                if strongSelf?.superview == nil {
+            DispatchQueue.main.sync { [weak self] in
+                if self?.superview == nil {
                     skipReload = true
                 }
-            })
+            }
         }
         
         if skipReload || paused {
@@ -210,6 +212,15 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         self.resize(bannerView.adSize)
         guard let _ = fsEventHandler else { return }
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
+        DispatchQueue.main.async { [weak self] in
+            if self?.superview == nil || self?.window == nil {
+                if #available(iOS 10, *) {
+                    self?.logger.error("### %@ has no superview or is not in the window. ###", self!)
+                    self?.logger.error("### This may negatively affect fill rate. ###", self!)
+                    assertionFailure("### CRASHING NOW DUE TO FAILSAFE CONSTRAINT! ###")
+                }
+            }
+        }
     }
     
     public func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {

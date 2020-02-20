@@ -11,6 +11,7 @@ import Foundation
 public typealias FSAdEventHandler = @convention(block) (_ methodName: String, _ params: [ String : Any]) -> Void
 
 extension String {
+    static let loggerBannerCategory = "io.freestar.mobile.dfp.banner"
     static let eventBannerViewKey = "bannerView"
     static let eventInterstitialKey = "interstitial"
     static let eventErrorKey = "error"
