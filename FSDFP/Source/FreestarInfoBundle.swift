@@ -9,11 +9,11 @@
 import Foundation
 
 struct FreestarInfo: Codable {
-    let failsafeModeEnabled: Bool
+    let failsafeModeEnabled: Bool?
 }
 
 struct FreestarInfoBundle: Codable {
-    let freestar: FreestarInfo
+    let freestar: FreestarInfo?
 }
 
 

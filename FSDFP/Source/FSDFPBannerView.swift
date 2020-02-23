@@ -19,8 +19,16 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     
     lazy private var failsafeModeEnabled: Bool = {
         let plist = Plist<FreestarInfoBundle>()
-        let info = plist.decode()
-        return (info?.freestar.failsafeModeEnabled)!
+        guard let info = plist.decode() else {
+            return false
+        }
+        guard let freestarInfo = info.freestar else {
+            return false
+        }
+        guard let failsafeModeEnabled = freestarInfo.failsafeModeEnabled else {
+            return false
+        }
+        return failsafeModeEnabled
     }()
     
     
