@@ -15,7 +15,14 @@ import os
 open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     // logger
     @available(iOS 10, *)
-    lazy private(set) var logger = OSLog(FSDFPBannerView.self, category: String.loggerBannerCategory)
+    lazy private var logger = OSLog(FSDFPBannerView.self, category: String.loggerBannerCategory)
+    
+    lazy private var failsafeModeEnabled: Bool = {
+        let plist = Plist<FreestarInfoBundle>()
+        let info = plist.decode()
+        return (info?.freestar.failsafeModeEnabled)!
+    }()
+    
     
     // MARK: public properties
     @objc public private(set) var fsIdentifier:String?
@@ -212,6 +219,13 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         self.resize(bannerView.adSize)
         guard let _ = fsEventHandler else { return }
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
+        if #available(iOS 10, *) {
+            if !failsafeModeEnabled {
+                logger.info("Failsafe mode: %@", failsafeModeEnabled)
+                return
+            }
+        }
+        
         DispatchQueue.main.async { [weak self] in
             if self?.superview == nil || self?.window == nil {
                 if #available(iOS 10, *) {

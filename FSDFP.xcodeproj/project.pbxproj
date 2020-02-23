@@ -24,6 +24,8 @@
 		0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */; };
 		053F95382289F8DD0055E7BB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F95372289F8DD0055E7BB /* Utils.swift */; };
 		053F9542228A124E0055E7BB /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F9541228A124E0055E7BB /* Collection+Extensions.swift */; };
+		0548C7FD2403358900509071 /* PlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0548C7FC2403358900509071 /* PlistReader.swift */; };
+		0548C7FF24033B8A00509071 /* FreestarInfoBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0548C7FE24033B8A00509071 /* FreestarInfoBundle.swift */; };
 		055122C6226F966700FDA8E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055122C5226F966700FDA8E7 /* Constants.swift */; };
 		055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */; };
 		055D3AFA225FAD40003F583D /* FSDFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D3AF0225FAD3F003F583D /* FSDFP.framework */; };
@@ -54,6 +56,8 @@
 		0539527C2288E97F00FD2585 /* FSRegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSRegistrationProtocols.swift; sourceTree = "<group>"; };
 		053F95372289F8DD0055E7BB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		053F9541228A124E0055E7BB /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		0548C7FC2403358900509071 /* PlistReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistReader.swift; sourceTree = "<group>"; };
+		0548C7FE24033B8A00509071 /* FreestarInfoBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreestarInfoBundle.swift; sourceTree = "<group>"; };
 		055122C5226F966700FDA8E7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		055122C7226FC24200FDA8E7 /* FSDFPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSDFPErrors.swift; sourceTree = "<group>"; };
 		055D3AF0225FAD3F003F583D /* FSDFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FSDFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +156,8 @@
 				05F8123C2334129400416D56 /* FSDFPBannerView.swift */,
 				FD8C3B1323357E83001C563C /* FSDFPInterstitial.swift */,
 				FD1533BF23FE0B780056407E /* OSLog+Extensions.swift */,
+				0548C7FC2403358900509071 /* PlistReader.swift */,
+				0548C7FE24033B8A00509071 /* FreestarInfoBundle.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -377,9 +383,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1533C023FE0B780056407E /* OSLog+Extensions.swift in Sources */,
+				0548C7FD2403358900509071 /* PlistReader.swift in Sources */,
 				055122C8226FC24200FDA8E7 /* FSDFPErrors.swift in Sources */,
 				055122C6226F966700FDA8E7 /* Constants.swift in Sources */,
 				05B7BABF228DE76F005E956D /* GADAdSize+Extensions.swift in Sources */,
+				0548C7FF24033B8A00509071 /* FreestarInfoBundle.swift in Sources */,
 				0539527D2288E97F00FD2585 /* FSRegistrationProtocols.swift in Sources */,
 				05BD72F4228F84C5008BDBF4 /* TimeInterval+Extensions.swift in Sources */,
 				053F95382289F8DD0055E7BB /* Utils.swift in Sources */,
