@@ -229,7 +229,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         fsEventHandler!(#function, [String.eventBannerViewKey : bannerView])
         if #available(iOS 10, *) {
             if !failsafeModeEnabled {
-                logger.info("Failsafe mode: %@", failsafeModeEnabled)
+//                logger.debug("Failsafe mode: %@", failsafeModeEnabled)
                 return
             }
         }
