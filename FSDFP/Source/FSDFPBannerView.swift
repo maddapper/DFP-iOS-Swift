@@ -82,6 +82,27 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         }
     }
     
+    private func resetTimer() {
+        guard let timer = fsTimer else {
+            // bail since timer is nil
+            return
+        }
+        
+        if _fsRefreshRate.validateForBanner() {
+            timer.invalidate()
+            fsTimer = FSWeakGCDTimer.scheduledTimer(withTimeInterval: _fsRefreshRate,
+                                                    target: self,
+                                                    selector: #selector(self.fsReload),
+                                                    userInfo: nil,
+                                                    repeats: true,
+                                                    dispatchQueue: FSDFPBannerView.fsQueue)
+        } else {
+            if #available(iOS 10, *) {
+                logger.error("Cannot reset timer due to invalid refresh rate: %@", fsRefreshRate)
+            }
+        }
+    }
+    
     // MARK: static dispatch queue
     static var fsQueue: DispatchQueue = {
         var queue = DispatchQueue(label: "io.freestar.mobile.queue.dfpbanner")
@@ -210,6 +231,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
             guard let timer = fsTimer else {
                 return
             }
+            resetTimer()
             timer.fire()
         }
     }
