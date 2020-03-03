@@ -228,10 +228,10 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     @objc public func resumeRefresh() {
         if paused {
             paused = false
+            resetTimer()
             guard let timer = fsTimer else {
                 return
             }
-            resetTimer()
             timer.fire()
         }
     }
