@@ -43,6 +43,8 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     private var fsEventHandler:FSAdEventHandler?
     private var fsRequest:GADRequest?
     private var _fsRefreshRate: TimeInterval = TimeInterval.bannerRefreshIntervalDefault
+    private var applicationObserverResignActive: (Any & NSObjectProtocol)?
+    private var applicationObserverBecomeActive: (Any & NSObjectProtocol)?
     
     // MARK: computed properties
     @objc public var fsAdSize: CGSize {
@@ -92,6 +94,14 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
             return
         }
         timer.invalidate()
+        guard let applicationObserverResignActive = applicationObserverResignActive else {
+            return
+        }
+        NotificationCenter.default.removeObserver(applicationObserverResignActive)
+        guard let applicationObserverBecomeActive = applicationObserverBecomeActive else {
+            return
+        }
+        NotificationCenter.default.removeObserver(applicationObserverBecomeActive)
     }
     
     init(_ size: GADAdSize) {
@@ -123,6 +133,16 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         fsEventHandler = eventHandler
         isAutoloadEnabled = false
         delegate = self
+        applicationObserverResignActive = NotificationCenter.default.addObserver(forName:UIApplication.willResignActiveNotification, object: nil, queue: nil) { _ in
+            if !self.paused {
+                self.pauseRefresh()
+            }
+        }
+        applicationObserverBecomeActive = NotificationCenter.default.addObserver(forName:UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { _ in
+            if self.paused {
+                self.resumeRefresh()
+            }
+        }
     }
     
     public override init(frame: CGRect) {
@@ -185,11 +205,13 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     }
     
     @objc public func resumeRefresh() {
-        paused = false
-        guard let timer = fsTimer else {
-            return
+        if paused {
+            paused = false
+            guard let timer = fsTimer else {
+                return
+            }
+            timer.fire()
         }
-        timer.fire()
     }
     
     // MARK: internal reload
