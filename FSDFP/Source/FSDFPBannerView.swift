@@ -188,6 +188,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
             // initialize timer
             fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         }
+        paused = false        
     }
     
     // MARK: overriden properties
