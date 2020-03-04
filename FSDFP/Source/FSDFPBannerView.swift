@@ -70,15 +70,13 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         
         set(newValue) {
             guard newValue.validateForBanner() else {
+                if #available(iOS 10, *) {
+                    logger.error("Cannot reset timer due to invalid refresh rate: %@", fsRefreshRate)
+                }
                 return
             }
-            fsTimer = FSWeakGCDTimer.scheduledTimer(withTimeInterval: newValue,
-                                                    target: self,
-                                                    selector: #selector(self.fsReload),
-                                                    userInfo: nil,
-                                                    repeats: true,
-                                                    dispatchQueue: FSDFPBannerView.fsQueue)
             _fsRefreshRate = newValue
+            resetTimer()
         }
     }
     
@@ -87,20 +85,14 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
             // bail since timer is nil
             return
         }
-        
-        if _fsRefreshRate.validateForBanner() {
-            timer.invalidate()
-            fsTimer = FSWeakGCDTimer.scheduledTimer(withTimeInterval: _fsRefreshRate,
-                                                    target: self,
-                                                    selector: #selector(self.fsReload),
-                                                    userInfo: nil,
-                                                    repeats: true,
-                                                    dispatchQueue: FSDFPBannerView.fsQueue)
-        } else {
-            if #available(iOS 10, *) {
-                logger.error("Cannot reset timer due to invalid refresh rate: %@", fsRefreshRate)
-            }
-        }
+            
+        timer.invalidate()
+        fsTimer = FSWeakGCDTimer.scheduledTimer(withTimeInterval: fsRefreshRate,
+                                                target: self,
+                                                selector: #selector(self.fsReload),
+                                                userInfo: nil,
+                                                repeats: true,
+                                                dispatchQueue: FSDFPBannerView.fsQueue)
     }
     
     // MARK: static dispatch queue
@@ -185,8 +177,15 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         super.load(request)
         fsRequest = request
         if fsTimer == nil {
-            // initialize timer
-            fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
+            // first time load
+            fsTimer = FSWeakGCDTimer.scheduledTimer(withTimeInterval: fsRefreshRate,
+                                                    target: self,
+                                                    selector: #selector(self.fsReload),
+                                                    userInfo: nil,
+                                                    repeats: true,
+                                                    dispatchQueue: FSDFPBannerView.fsQueue)            
+        } else {
+            resetTimer()
         }
     }
     
