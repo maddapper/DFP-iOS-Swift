@@ -188,7 +188,6 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
             // initialize timer
             fsRefreshRate = TimeInterval.bannerRefreshIntervalDefault
         }
-        paused = false        
     }
     
     // MARK: overriden properties
@@ -239,25 +238,10 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     
     // MARK: internal reload
     @objc func fsReload() {
-        var skipReload = false
-        if Thread.isMainThread {
-            // only allow reload if view is in window
-            if superview == nil {
-                skipReload = true
-            }
-        } else {
-            DispatchQueue.main.sync { [weak self] in
-                if self?.superview == nil {
-                    skipReload = true
-                }
-            }
-        }
-        
-        if skipReload || paused {
+        if paused {
             return
         }
-        
-        // only allow reload if loadRequest was called
+                
         if let _ = adUnitID, let request = fsRequest  {
             DispatchQueue.main.async(execute: {
                 Utils.shared.removeHBKeywords(request: request as? DFPRequest)
