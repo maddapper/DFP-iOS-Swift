@@ -97,7 +97,8 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     
     // MARK: static dispatch queue
     static var fsQueue: DispatchQueue = {
-        var queue = DispatchQueue(label: "io.freestar.mobile.queue.dfpbanner")
+//        var queue = DispatchQueue(label: "io.freestar.mobile.queue.dfpbanner")
+        var queue = DispatchQueue.main
         return queue
     }()
     
