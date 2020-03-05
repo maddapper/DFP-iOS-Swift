@@ -152,7 +152,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
             }
         }
         applicationObserverBecomeActive = NotificationCenter.default.addObserver(forName:UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { _ in
-            if self.paused {
+            if self.paused && self.superview != nil && self.window != nil {
                 self.resumeRefresh()
             }
         }
@@ -183,7 +183,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
                                                     selector: #selector(self.fsReload),
                                                     userInfo: nil,
                                                     repeats: true,
-                                                    dispatchQueue: FSDFPBannerView.fsQueue)            
+                                                    dispatchQueue: FSDFPBannerView.fsQueue)
         } else {
             resetTimer()
         }
