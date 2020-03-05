@@ -152,7 +152,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
                 self.pauseRefresh()
             }
         }
-        applicationObserverBecomeActive = NotificationCenter.default.addObserver(forName:UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { _ in
+        applicationObserverBecomeActive = NotificationCenter.default.addObserver(forName:UIApplication.didBecomeActiveNotification, object: nil, queue: OperationQueue.main) { _ in
             if self.paused && self.superview != nil && self.window != nil {
                 self.resumeRefresh()
             }
