@@ -214,7 +214,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         fsRefreshRate = refreshRate
     }
     
-    static func validate(_ refreshRate: TimeInterval) -> Bool {
+    private static func validate(_ refreshRate: TimeInterval) -> Bool {
         return refreshRate < TimeInterval.bannerRefreshIntervalMax && refreshRate
             > TimeInterval.bannerRefreshIntervalMin
     }
@@ -228,19 +228,21 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         if paused {
             paused = false
             resetTimer()
-            guard let timer = fsTimer else {
-                return
-            }
-            timer.fire()
+            dispatchLoadOnMain()
         }
     }
     
     // MARK: internal reload
-    @objc func fsReload() {
-        if paused {
+    @objc private func fsReload() {
+        if paused || superview == nil || window == nil {
+            // bail if paused
             return
         }
                 
+        dispatchLoadOnMain()
+    }
+    
+    private func dispatchLoadOnMain() {
         if let _ = adUnitID, let request = fsRequest  {
             DispatchQueue.main.async(execute: {
                 Utils.shared.removeHBKeywords(request: request as? DFPRequest)
