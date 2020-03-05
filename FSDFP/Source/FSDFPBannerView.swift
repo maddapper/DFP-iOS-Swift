@@ -147,7 +147,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         fsEventHandler = eventHandler
         isAutoloadEnabled = false
         delegate = self
-        applicationObserverResignActive = NotificationCenter.default.addObserver(forName:UIApplication.willResignActiveNotification, object: nil, queue: nil) {
+        applicationObserverResignActive = NotificationCenter.default.addObserver(forName:UIApplication.willResignActiveNotification, object: nil, queue: OperationQueue.main) {
             [weak self] _ in
             guard let self = self else { return }
             if !self.paused {
