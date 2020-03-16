@@ -226,6 +226,11 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     
     // MARK: pause / refresh
     @objc public func pauseRefresh() {
+        guard let _ = fsRequest else {
+            // load has not yet been called since fsRequest is nil
+            return
+        }
+        
         paused = true
     }
     
