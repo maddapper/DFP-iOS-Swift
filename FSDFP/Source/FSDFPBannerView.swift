@@ -38,6 +38,17 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
     @objc public weak var registrationDelegate:FSRegistrationDelegate?
     @objc public var isRegistered: Bool = false
     
+    private var _fsAutoLoadEnabled: Bool = true
+    @objc public var fsAutoLoadEnabled: Bool {
+        @objc(isFsAutoLoadEnabled)
+        get {
+            return _fsAutoLoadEnabled
+        }
+        set {
+            _fsAutoLoadEnabled = newValue
+        }
+    }
+    
     // MARK: private properties
     private var fsTimer:FSWeakGCDTimer?
     private var fsEventHandler:FSAdEventHandler?
@@ -150,6 +161,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         applicationObserverResignActive = NotificationCenter.default.addObserver(forName:UIApplication.willResignActiveNotification, object: nil, queue: OperationQueue.main) {
             [weak self] _ in
             guard let self = self else { return }
+            if !self.fsAutoLoadEnabled { return }
             if !self.paused {
                 self.pauseRefresh()
             }
@@ -157,6 +169,7 @@ open class FSDFPBannerView: DFPBannerView, GADBannerViewDelegate {
         applicationObserverBecomeActive = NotificationCenter.default.addObserver(forName:UIApplication.didBecomeActiveNotification, object: nil, queue: OperationQueue.main) {
             [weak self] _ in
             guard let self = self else { return }
+            if !self.fsAutoLoadEnabled { return }
             if self.paused && self.superview != nil && self.window != nil {
                 self.resumeRefresh()
             }
