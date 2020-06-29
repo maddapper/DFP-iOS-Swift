@@ -12,7 +12,7 @@ import Foundation
 @_exported import os.log
 
 @available(iOS 10, *)
-public extension OSLog {
+extension OSLog {
     
     convenience init(_ bundle: Bundle = .main, category: String? = nil) {
         self.init(subsystem: bundle.bundleIdentifier ?? "default", category: category ?? "default")

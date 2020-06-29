@@ -4,15 +4,12 @@ use_frameworks!
 
 target "FSDFP" do
   pod 'FSCommon'
-  pod 'Google-Mobile-Ads-SDK', '~> 7.55.0'
+  pod 'Google-Mobile-Ads-SDK', '~> 7.61.0'
   pod 'PrebidMobileFS'
-#  pod 'GoogleUtilities', '6.3.0'
-#  pod 'nanopb', '0.3.901'
-#  pod 'Google-Mobile-Ads-SDK', '~> 7.41.0'
 end
 
 target "FSDFPTests" do
   pod 'FSCommon'
-  pod 'Google-Mobile-Ads-SDK', '~> 7.55.0'
+  pod 'Google-Mobile-Ads-SDK', '~> 7.61.0'
   pod 'PrebidMobileFS'
 end
